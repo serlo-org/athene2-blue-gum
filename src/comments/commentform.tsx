@@ -4,9 +4,12 @@ import { UserContext, EntityContext } from '../../src/context'
 import TextareaAutosize from 'react-textarea-autosize'
 import { Box } from 'grommet'
 import { Button } from '../button.component'
-import { getColor, lightenColor, getDefaultTransition } from '../provider.component'
+import {
+  getColor,
+  lightenColor,
+  getDefaultTransition
+} from '../provider.component'
 import { faArrowRight, faReply } from '@fortawesome/free-solid-svg-icons'
-
 
 interface SendProps {
   entity_id: string
@@ -17,14 +20,16 @@ interface SendProps {
 }
 
 interface CommentFormProps {
-parent_id: string
-onSendComment: (props: SendProps) => void
-placeholder: string
-reply?: boolean
+  parent_id: string
+  onSendComment: (props: SendProps) => void
+  placeholder: string
+  reply?: boolean
 }
 
 export default class CommentForm extends React.Component<
-  CommentFormProps, { newCommentValue: string, focus: boolean }> {
+  CommentFormProps,
+  { newCommentValue: string; focus: boolean }
+> {
   constructor(props: CommentFormProps) {
     super(props)
     this.state = {
@@ -40,25 +45,31 @@ export default class CommentForm extends React.Component<
           <EntityContext.Consumer>
             {({ entity }) => (
               <StyledBox margin={{ bottom: 'medium' }}>
-                  <StyledTextarea
-                    value={this.state.newCommentValue}
-                    onFocus={ () => { this.setState({ focus: true }) }}
-                    onBlur={ () => { this.setState({ focus: false }) }}
-                    onChange={event => { this.setState({ newCommentValue: event.target.value }) }}
-                    placeholder={this.props.placeholder}
-                    focused = {this.state.focus}
-                  />
-                  <SendButton
-                    iconName={ this.props.reply ? "reply" : "arrow-right"}
-                    title="Abschicken"
-                    active={this.state.focus}
-                    onClick={() =>
-                      onSendComment({
-                        entity_id: entity.id,
-                        parent_id: parent_id,
-                        user_id: user.id,
-                        user_name: user.username,
-                        body: this.state.newCommentValue
+                <StyledTextarea
+                  value={this.state.newCommentValue}
+                  onFocus={() => {
+                    this.setState({ focus: true })
+                  }}
+                  onBlur={() => {
+                    this.setState({ focus: false })
+                  }}
+                  onChange={event => {
+                    this.setState({ newCommentValue: event.target.value })
+                  }}
+                  placeholder={this.props.placeholder}
+                  focused={this.state.focus}
+                />
+                <SendButton
+                  iconName={this.props.reply ? 'faReply' : 'faArrowRight'}
+                  title="Abschicken"
+                  active={this.state.focus}
+                  onClick={() =>
+                    onSendComment({
+                      entity_id: entity.id,
+                      parent_id: parent_id,
+                      user_id: user.id,
+                      user_name: user.username,
+                      body: this.state.newCommentValue
                     })
                   }
                 />
@@ -71,14 +82,13 @@ export default class CommentForm extends React.Component<
   }
 }
 
-
-const StyledBox = styled(Box) `
+const StyledBox = styled(Box)`
   position: relative;
 ` as typeof Box
 
-const StyledTextarea = styled(TextareaAutosize) `
-  background: ${ lightenColor('brandGreen', 0.445) };
-  color: ${ getColor('black') };
+const StyledTextarea = styled(TextareaAutosize)`
+  background: ${lightenColor('brandGreen', 0.445)};
+  color: ${getColor('black')};
 
   margin-top: 1rem;
   border: none;
@@ -87,28 +97,27 @@ const StyledTextarea = styled(TextareaAutosize) `
   outline: none;
   overflow: hidden;
   resize: none;
-  
+
   min-height: 1rem;
 
   ::placeholder {
-      color: ${ getColor('brandGreen') };
+      color: ${getColor('brandGreen')};
   }
-  
-  ${ props => props.focused ?  
-    `
+
+  ${props =>
+    props.focused
+      ? `
     min-height: 3rem;
-    background: ${ lightenColor('brandGreen', 0.35) };
+    background: ${lightenColor('brandGreen', 0.35)};
     `
-    : null
-  }
-        
-  transition: ${ getDefaultTransition() };
+      : null}
+
+  transition: ${getDefaultTransition()};
 
 ` as typeof TextareaAutosize | any
 
-const SendButton = styled(Button) `    
-    position: absolute;
-    right: .6rem;
-    bottom: .5rem;
+const SendButton = styled(Button)`
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.5rem;
 ` as typeof Button | any
-

@@ -10,7 +10,7 @@ const renderItems = ( leaf: boolean | undefined, timestamp : Date ) => (
     {leaf ? null : (
       <DropContentButton
         label="Diskussion archivieren"
-        iconName="check"
+        iconName="faCheck"
         backgroundColor="transparent"
         activeBackgroundColor={getColor('lightblue')}
         fontColor={getColor('darkGray')}
@@ -18,14 +18,14 @@ const renderItems = ( leaf: boolean | undefined, timestamp : Date ) => (
     )}
     <DropContentButton
       label="Diskussion melden"
-      iconName="flag"
+      iconName="faFlag"
       backgroundColor="transparent"
       activeBackgroundColor={getColor('lightblue')}
       fontColor={getColor('darkGray')}
     />
     <DropContentButton
       label="Diskussion löschen"
-      iconName="trash"
+      iconName="faTrash"
       backgroundColor="transparent"
       activeBackgroundColor={getColor('lightblue')}
       fontColor={getColor('darkGray')}
@@ -43,7 +43,7 @@ export default function MetaBar({author, timestamp, leaf}:{author: any, timestam
     <MetaBarBox direction="row" justify="between">
       <Button
         label={author.username}
-        iconName="user-graduate"
+        iconName="faUserGraduate"
         href={`https://serlo.org/${author.id}`}
         backgroundColor="transparent"
         activeBackgroundColor={getColor('lightblue')}
@@ -54,7 +54,7 @@ export default function MetaBar({author, timestamp, leaf}:{author: any, timestam
         <StyledDropButton
           dropAlign={{ top: 'bottom', right: 'right' }}
           dropContent={renderItems(leaf, timestamp)}
-          iconName='caret-down'
+          iconName='faCaretDown'
           fontColor={getColor('lighterblue')}
           activeFontColor={'#fff'}
           reverse

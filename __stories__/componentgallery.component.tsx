@@ -391,8 +391,8 @@ storiesOf("Components Gallery", module).add("All", () => <Components />)
     <Normalize/>
     <GlobalStyle/>
     <Box direction="row-responsive" pad="large" justify="center">
-      <Icon iconName='faFilter' size="2x" />
-      <Icon iconName='faYoutube'  size="2x" />
+      <Icon icon='faFilter' size="2x" />
+      <Icon icon='faYoutube'  size="2x" />
     </Box>
 
   </Provider>

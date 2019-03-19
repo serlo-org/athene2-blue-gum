@@ -22,7 +22,7 @@ export function About(props: AboutProps) {
           <TopButton
             href="#top"
             title="Mit Serlo ganz nach oben ;)"
-            iconName="chevron-up"
+            iconName="faChevronUp"
             backgroundColor="transparent"
             activeBackgroundColor={getColor('lightblue')}
           />
@@ -44,7 +44,7 @@ export function About(props: AboutProps) {
               <SummaryBox>
                 <Button
                   label="Mehr erfahren"
-                  iconName="chevron-circle-right"
+                  iconName="faChevronCircleRight"
                   backgroundColor="transparent"
                 />
               </SummaryBox>

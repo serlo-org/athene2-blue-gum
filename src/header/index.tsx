@@ -9,16 +9,16 @@ import { SearchInput } from './searchinput'
 
 const topNavLinks = [
   { title: '', class: 'seperator'},
-  { title: 'Neu hier?', url: 'https://google.de', icon: 'question-circle' },
-  { title: 'Anmelden', url: '#', icon: 'user-circle' },
+  { title: 'Neu hier?', url: 'https://google.de', icon: 'faQuestionCircle' },
+  { title: 'Anmelden', url: '#', icon: 'faUserCircle' },
   { title: '', class: 'seperator'},
-  { title: 'Lernen', url: '#', icon: 'arrow-circle-right' },
-  { title: 'Was ist Serlo?', url: '#', icon: 'newspaper', children: [
+  { title: 'Lernen', url: '#', icon: 'faArrowCircleRight' },
+  { title: 'Was ist Serlo?', url: '#', icon: 'faNewspaper', children: [
       {title: 'Action', url: '#'},
       {title: 'Test', url: '#'},
       {title: 'Längerer Eintrag', url: '#'},
   ]},
-  { title: 'Spenden', url: '#', class: 'donate', icon: 'hand-holding-heart', highlight: true },
+  { title: 'Spenden', url: '#', class: 'donate', icon: 'faHandHoldingHeart', highlight: true },
 ]
 
 export function Header() {
@@ -34,12 +34,12 @@ export function Header() {
         <Box pad="medium" background="brand">
           <Logo subline="Super good Serlo Slogan" />
         </Box>
-        
+
         <SearchInput />
         <div id="test" ref={overlayTargetRef} />
       </TopNavWrap>
 
-      
+
     </React.Fragment>
   )
 }

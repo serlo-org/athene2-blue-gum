@@ -18,7 +18,7 @@ export class SearchInput extends React.Component<Props> {
           value={this.props.value}
         />
         <button className="btn btn-success" type="submit">
-          <Icon iconName='faSearch' />
+          <Icon icon='faSearch' />
         </button>
       </SearchWrap>
     )

@@ -1,21 +1,25 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { Button } from './button.component'
-import { getColor, getDefaultTransition, lightenColor } from './provider.component'
-import { useScrollYPosition } from 'react-use-scroll-position';
+import {
+  getColor,
+  getDefaultTransition,
+  lightenColor
+} from './provider.component'
+import { useScrollYPosition } from 'react-use-scroll-position'
 
-export function EditBox( props ) {
+export function EditBox(props) {
   const scrollY = useScrollYPosition()
-  const summary = (scrollY > 30) ? false : true
+  const summary = scrollY > 30 ? false : true
 
   return (
-      <React.Fragment>
+    <React.Fragment>
       <Summary show={summary}>
         Bearbeitungen: <b>5</b>
         <p>
           <SummaryButton
             label="Inhalt bearbeiten"
-            iconName="pencil-alt"
+            iconName="faPencilAlt"
             fontColor={getColor('lighterblue')}
             backgroundColor="transparent"
             activeBackgroundColor={getColor('lighterblue')}
@@ -24,7 +28,7 @@ export function EditBox( props ) {
           />
           <SummaryButton
             label="Versionsgeschichte"
-            iconName="history"
+            iconName="faHistory"
             fontColor={getColor('lighterblue')}
             backgroundColor="transparent"
             activeBackgroundColor={getColor('lighterblue')}
@@ -37,9 +41,9 @@ export function EditBox( props ) {
         className={props.className}
         a11yTitle={props.title}
         plain
-        iconName={'pencil-alt'}
+        iconName="faPencilAlt"
         reverse
-        hiddenLabel={"Artikel bearbeiten"}
+        hiddenLabel={'Artikel bearbeiten'}
         show={!summary}
         activeBackgroundColor={getColor('brandGreen')}
       />
@@ -47,45 +51,43 @@ export function EditBox( props ) {
   )
 }
 
-
-const SummaryButton = styled(Button) `
-  margin-left: -.3em;
+const SummaryButton = styled(Button)`
+  margin-left: -0.3em;
   svg {
     width: 1em !important;
     height: 1em !important;
   }
 `
 
-
-const Summary = styled.div `
+const Summary = styled.div`
   position: absolute;
   bottom: 2rem;
   right: 2rem;
 
-  font-size: .8rem;
+  font-size: 0.8rem;
   width: 10rem;
-  color: ${ getColor('lighterblue')};
+  color: ${getColor('lighterblue')};
 
-  border-left: .15rem solid ${lightenColor('brand',0.55)};
-  padding: .2rem 0 .2rem .5rem;
+  border-left: 0.15rem solid ${lightenColor('brand', 0.55)};
+  padding: 0.2rem 0 0.2rem 0.5rem;
 
   > p {
     margin-bottom: 0;
   }
 
-  transition: opacity .2s ease-in-out;
-  opacity: ${ props => props.show ? 1 : 0 };
-  pointer-events: ${ props => props.show ? "all" : "none" };
+  transition: opacity 0.2s ease-in-out;
+  opacity: ${props => (props.show ? 1 : 0)};
+  pointer-events: ${props => (props.show ? 'all' : 'none')};
 `
-const StyledButton = styled(Button) `
+const StyledButton = styled(Button)`
   position: fixed;
   bottom: 4rem;
   right: 7rem;
   text-align: right;
 
   transition: opacity .2s ease-in-out;
-  opacity: ${ props => props.show ? 1 : 0 };
-  pointer-events: ${ props => props.show ? "all" : "none" };
+  opacity: ${props => (props.show ? 1 : 0)};
+  pointer-events: ${props => (props.show ? 'all' : 'none')};
 
   @media screen and (hover: hover) {
     &:hover {

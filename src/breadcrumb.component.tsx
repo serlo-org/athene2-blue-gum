@@ -23,7 +23,7 @@ export function Breadcrumb( props ) {
           className={props.className}
           a11yTitle={props.title}
           plain
-          iconName={'arrow-circle-left'}
+          iconName={'faArrowCircleLeft'}
           size={1.1}
           backgroundColor={getColor('lighterblue')}
           activeBackgroundColor={getColor('brand')}

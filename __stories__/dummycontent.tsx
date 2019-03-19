@@ -1,10 +1,10 @@
 export const serloSlogan = 'Die freie Lernplattform'
 
 export const topNavLinks = [
-  { title: 'Neu hier?', url: '#', icon: 'question-circle' },
-  { title: 'Anmelden', url: '#', icon: 'user-circle' },
+  { title: 'Neu hier?', url: '#', icon: 'faQuestionCircle' },
+  { title: 'Anmelden', url: '#', icon: 'faUserCircle' },
   { title: '', class: 'seperator' },
-  { title: 'Lernen', url: '#', icon: 'arrow-circle-right' },
+  { title: 'Lernen', url: '#', icon: 'faArrowCircleRight' },
   {
     title: 'Was ist Serlo?',
     url: '#',
@@ -15,7 +15,7 @@ export const topNavLinks = [
       { title: 'Längerer Eintrag', url: '#' }
     ]
   },
-  { title: 'Spenden', url: '#', class: 'donate', icon: 'hand-holding-heart' }
+  { title: 'Spenden', url: '#', class: 'donate', icon: 'faHandHoldingHeart' }
 ]
 
 export const footerNavEntries = [

@@ -28,7 +28,7 @@ export function Nav(props: NavProps) {
               return (
                 <NavLi key={index + childindex}>
                   <NavLink href={link.url}>
-                    {link.icon && <Icon iconName={link.icon} />}{' '}
+                    {link.icon && <Icon icon={link.icon} />}{' '}
                     {link.title}
                   </NavLink>
                 </NavLi>
