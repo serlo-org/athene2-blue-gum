@@ -48,17 +48,17 @@ export const footerNavEntries = [
         title: 'Newsletter',
         url:
           'https://serlo.us7.list-manage.com/subscribe?u=23f4b04bf70ea485a766e532d&amp;id=a7bb2bbc4f',
-        icon: ['fas', 'envelope']
+        icon: 'faEnvelope'
       },
       {
         title: 'Facebook',
         url: 'https://www.facebook.com/serlo.org',
-        icon: ['fab', 'facebook-square']
+        icon: 'faFacebookSquare'
       },
       {
         title: 'Twitter',
         url: 'https://twitter.com/de_serlo',
-        icon: ['fab', 'twitter-square']
+        icon: 'faTwitterSquare'
       }
     ]
   },

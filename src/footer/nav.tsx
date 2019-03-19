@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { FontAwesomeIcon } from '../fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { Icon } from '../icon.component'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import { getColor, getBreakpoint } from '../provider.component'
 import styled from 'styled-components'
@@ -8,7 +7,7 @@ import styled from 'styled-components'
 export interface NavChild {
   title: string
   url: string
-  icon?: IconProp
+  icon?: string
 }
 export interface NavEntry {
   title: string
@@ -29,7 +28,7 @@ export function Nav(props: NavProps) {
               return (
                 <NavLi key={index + childindex}>
                   <NavLink href={link.url}>
-                    {link.icon && <FontAwesomeIcon icon={link.icon} />}{' '}
+                    {link.icon && <Icon iconName={link.icon} />}{' '}
                     {link.title}
                   </NavLink>
                 </NavLi>
