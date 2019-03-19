@@ -1,8 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
-import { FontAwesomeIcon } from '../fontawesome'
-import { getColor } from '../provider.component';
+import { Anchor } from 'grommet'
+import { getColor } from '../provider.component'
+import { Button } from '../button.component'
 
 import Logo from '../logo.component'
 const participateSrc = require('../img/footer_participate.svg')
@@ -12,50 +13,58 @@ export interface AboutProps {
   slogan: string
 }
 
-export function About( props : AboutProps) {
+export function About(props: AboutProps) {
   return (
     <AboutGrid fluid>
       <AboutWrap>
-        <Col xs={12} md={8} className="brand">
+        <ColBrand xs={12} md={8}>
           <Logo subline={props.slogan} />
-          <a id="toplink" href="#top" title="Mit Serlo ganz nach oben ;)">
-            <FontAwesomeIcon icon="chevron-up" size="2x" />
-          </a>
-        </Col>
+          <TopButton
+            href="#top"
+            title="Mit Serlo ganz nach oben ;)"
+            iconName="chevron-up"
+            backgroundColor="transparent"
+            activeBackgroundColor={getColor('lightblue')}
+          />
+        </ColBrand>
 
         <Col xs={12} md={4}>
-          <Row className="summary">
+          <RowSummary>
             <Col xs={12}>
               <h2>
-                <a href="#">Serlo.org</a> ist die Wikipedia fürs Lernen.
+                <Anchor href="#" color="#fff">
+                  Serlo.org
+                </Anchor>{' '}
+                ist die Wikipedia fürs Lernen.
               </h2>
               <p>
                 Wir sind eine engagierte Gemeinschaft, die daran arbeitet,
                 hochwertige Bildung weltweit frei verfügbar zu machen.
               </p>
               <p>
-                <a href="#" className="icon">
-                  <FontAwesomeIcon icon="chevron-circle-right" />{' '}
-                  <span>Mehr erfahren</span>
-                </a>
+                <Button
+                  label="Mehr erfahren"
+                  iconName="chevron-circle-right"
+                  backgroundColor="transparent"
+                />
               </p>
             </Col>
-          </Row>
+          </RowSummary>
 
-          <Row className="support">
+          <RowSupport>
             <Col xs>
-              <a href="#" className="icon">
-                <img alt="part" src={participateSrc} />
-                <span>Mitmachen</span>
-              </a>
+              <ImageLink href="#">
+                <img alt="Icon: Participate" src={participateSrc} />
+                <StyledButton label="Mitmachen" />
+              </ImageLink>
             </Col>
             <Col xs>
-              <a href="#" className="icon">
-                <img alt="part" src={donateSrc} />
-                <span>Spenden</span>
-              </a>
+              <ImageLink href="#">
+                <img alt="Icon: Spenden" src={donateSrc} />
+                <StyledButton label="Spenden" />
+              </ImageLink>
             </Col>
-          </Row>
+          </RowSupport>
         </Col>
       </AboutWrap>
     </AboutGrid>
@@ -65,73 +74,63 @@ export function About( props : AboutProps) {
 const AboutGrid = styled(Grid)`
   padding: 0;
 `
+const ImageLink = styled.a`
+  > img {
+    display: block;
+    margin: 0 auto;
+    max-width: 5rem;
+  }
+`
+
+const StyledButton = styled(Button)`
+  margin-top: 0.3rem;
+
+  ${ImageLink}:hover & {
+    background-color: ${getColor('brand')};
+  }
+` as typeof Button
+
+const TopButton = styled(Button)`
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+
+  > svg {
+    vertical-align: -1em;
+  }
+` as typeof Button
+
+const ColBrand = styled(Col)`
+  background-color: ${getColor('brand')};
+  position: relative;
+`
+
+const RowSummary = styled(Row)`
+  background-color: ${getColor('lightblue')};
+  color: #fff;
+  padding-top: 2.5rem;
+
+  @media (max-width: ${props => props.theme.md}) {
+    padding-left: 3rem;
+  }
+
+  > div > h2 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  > div > p {
+    margin: 2rem 0;
+  }
+`
+
+const RowSupport = styled(Row)`
+  padding: 1rem 0;
+  background-color: ${getColor('brandGreen')};
+  color: #fff;
+  text-align: center;
+`
 
 const AboutWrap = styled(Row)`
   margin-right: 0;
-
-  a:not(.icon),
-  a.icon {
-    text-decoration: none;
-    color: #fff;
-    padding-bottom: 0.03em;
-    border-bottom: 0.1rem solid transparent;
-  }
-
-  a:not(.icon):hover,
-  a.icon:hover span {
-    color: #fff;
-    text-decoration: none;
-    border-bottom: 0.1rem solid;
-  }
-
-  a.icon {
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .support img {
-    display: block;
-    margin: 0 auto;
-  }
-
-  .brand {
-    background-color: ${getColor('brand')};
-    position: relative;
-
-    #toplink {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-    }
-  }
-
-  .summary {
-    background-color: ${getColor('lightblue')};
-    color: #fff;
-    padding-top: 2.5rem;
-
-    @media (max-width: ${props => props.theme.md}) {
-      padding-left: 3rem;
-    }
-
-    h2 {
-      font-size: 1rem;
-      font-weight: bold;
-    }
-
-    p {
-      margin: 2rem 0;
-    }
-  }
-
-  .support {
-    padding: 1rem 0;
-    background-color: ${getColor('brandGreen')};
-    color: #fff;
-    text-align: center;
-
-    img {
-      max-width: 5rem;
-    }
-  }
 `

@@ -3,14 +3,15 @@ import { About } from './about'
 import { Nav, NavEntry } from './nav'
 
 export interface Props {
-  slogan: string,
-  navLinks: NavEntry[]
+  slogan: string
+  navEntries: NavEntry[]
 }
 
-export function Footer( props : Props) {
+export function Footer(props: Props) {
   return (
     <footer>
-      <About slogan = {props.slogan} />
-      <Nav links = {props.navLinks} />
+      <About slogan={props.slogan} />
+      <Nav navEntries={props.navEntries} />
     </footer>
-  )}
+  )
+}
