@@ -31,23 +31,23 @@ export function About(props: AboutProps) {
         <Col xs={12} md={4}>
           <RowSummary>
             <Col xs={12}>
-              <h2>
+              <SummaryHeading>
                 <Anchor href="#" color="#fff">
                   Serlo.org
                 </Anchor>{' '}
                 ist die Wikipedia fürs Lernen.
-              </h2>
-              <p>
+              </SummaryHeading>
+              <SummaryBox>
                 Wir sind eine engagierte Gemeinschaft, die daran arbeitet,
                 hochwertige Bildung weltweit frei verfügbar zu machen.
-              </p>
-              <p>
+              </SummaryBox>
+              <SummaryBox>
                 <Button
                   label="Mehr erfahren"
                   iconName="chevron-circle-right"
                   backgroundColor="transparent"
                 />
-              </p>
+              </SummaryBox>
             </Col>
           </RowSummary>
 
@@ -113,15 +113,15 @@ const RowSummary = styled(Row)`
   @media (max-width: ${props => props.theme.md}) {
     padding-left: 3rem;
   }
+`
 
-  > div > h2 {
-    font-size: 1rem;
-    font-weight: bold;
-  }
+const SummaryHeading = styled.h2`
+  font-size: 1rem;
+  font-weight: bold;
+`
 
-  > div > p {
-    margin: 2rem 0;
-  }
+const SummaryBox = styled.div`
+  margin: 2rem 0;
 `
 
 const RowSupport = styled(Row)`
