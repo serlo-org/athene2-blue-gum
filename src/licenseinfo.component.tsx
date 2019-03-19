@@ -27,7 +27,8 @@ export default class LicenseInfo extends React.Component<LicenseInfoProps> {
         </Anchor>
         , wenn nicht anders angeben.
         <br />
-        Was das genau bedeutet erfährst du <Anchor href="#">hier</Anchor>.<br />
+        Was das genau bedeutet erfährst du <Anchor href={infoURL}>hier</Anchor>.
+        <br />
         {symbolURL && (
           <IconAnchor href={licenseURL}>
             <SVG src={symbolURL} />
