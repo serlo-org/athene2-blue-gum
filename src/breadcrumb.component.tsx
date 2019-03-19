@@ -7,9 +7,10 @@ import useWindowSize from '@rehooks/window-size'
 
 import { Anchor } from 'grommet'
 
+//TODO: Define Props when data structure from athene is clear
 
 export function Breadcrumb( props ) {
-  
+
   const windowSize = useWindowSize()
   const showFull = ( windowSize.innerWidth > 900 ) ? true : false;
 
@@ -23,16 +24,16 @@ export function Breadcrumb( props ) {
           a11yTitle={props.title}
           plain
           iconName={'arrow-circle-left'}
-          
+          size={1.1}
           backgroundColor={getColor('lighterblue')}
           activeBackgroundColor={getColor('brand')}
         />
           :
           <BreadcrumbList>
-            <Anchor href="#">Mathematik </Anchor>
-            &nbsp;>&nbsp;<Anchor href="#">Terme und Gleichungen</Anchor>
-            &nbsp;>&nbsp;<Anchor href="#">Terme und Variablen</Anchor>
-            &nbsp;>&nbsp;<Anchor href="#">Zusammenfassen, Ausmultiplizieren, Faktorisieren</Anchor>
+            <StyledAnchor href="#">Mathematik </StyledAnchor>
+            {' '}>&nbsp;<StyledAnchor href="#">Terme und Gleichungen</StyledAnchor>
+            {' '}>&nbsp;<StyledAnchor href="#">Terme und Variablen</StyledAnchor>
+            {' '}>&nbsp;<StyledAnchor href="#">Zusammenfassen, Ausmultiplizieren, Faktorisieren</StyledAnchor>
           </BreadcrumbList>
         }
     </div>
@@ -45,13 +46,14 @@ const BreadcrumbList = styled.div `
   margin-top: -1rem;
   font-size: 1rem;
   color: #ddd;
-
-  > a {
-    color: ${ getColor('lighterblue') };
-  }
 `
+
+const StyledAnchor = styled(Anchor) `
+  color: ${ getColor('lighterblue') };
+` as typeof Anchor
+
 
 const StyledButton = styled(Button) `
   margin-top: 2rem;
   margin-bottom: 0;
-`
+` as typeof Button
