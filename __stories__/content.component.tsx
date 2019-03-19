@@ -91,15 +91,22 @@ storiesOf("Content Components", module)
   </Provider>
 )
 
-.add("License Info", () =>
-  <Provider>
-    <Normalize/>
-    <GlobalStyle/>
-    <Box pad="medium" width="large">
-      <LicenseInfo />
-    </Box>
-  </Provider>
-)
+.add('License Info', () => (
+    <Provider>
+      <Normalize />
+      <GlobalStyle />
+      <Box pad="medium" width="large">
+        <LicenseInfo
+          title="Diese Inhalte stehen unter der freien CC-BY-SA 4.0 Lizenz, wenn nicht anders angeben."
+          licenseURL="https://creativecommons.org/licenses/by-sa/4.0/deed.de"
+          infoURL="https://de.serlo.org/license/detail/1"
+          isStandard={true}
+          symbolURL={require('../src/img/license_ccbysa.svg')}
+        />
+      </Box>
+    </Provider>
+  ))
+
 .add("Lists", () =>
   <Provider>
     <Normalize/>
@@ -162,7 +169,7 @@ storiesOf("Content Components", module)
       </List>
 
       <Heading level={2}>Zusammenfassung</Heading>
-      
+
       <Table>
         <thead><tr>
           <th><p>Begriff</p></th>
@@ -187,11 +194,11 @@ storiesOf("Content Components", module)
         und messen der abgerollten <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">Strecke</Anchor>.
         Auf diese Weise kannst du die <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.</p>
         <p>In der Abbildung rechts siehst du, wie ein Kreis mit <Anchor href="/36162">Durchmesser</Anchor>
-        <b>d=1</b> abgerollt wird.</p><p>Sein Umfang beträgt 
+        <b>d=1</b> abgerollt wird.</p><p>Sein Umfang beträgt
         <b>π</b>, also etwa <b>3,14</b></p><p>Für den Umfang findest du so den folgenden Zusammenhang: </p><p>
         <b>U=2⋅r⋅π=d⋅π</b></p>
-        
-        
+
+
         <Heading level="2" icon={faVideo}>Video zur Flächenberechnung</Heading>
 
     </StyledContent>
