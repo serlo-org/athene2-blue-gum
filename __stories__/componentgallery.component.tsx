@@ -8,6 +8,7 @@ import { Normalize } from 'styled-normalize'
 import { Grommet, Accordion, AccordionPanel, Anchor, Box, Button, Calendar, Chart, CheckBox, Clock, DataTable, Diagram, Distribution, FormField, Grid, Heading as GrommetHeading, Menu, Meter, Paragraph, RadioButton, RangeInput, RangeSelector, Select, Stack, Tab, Tabs, Text, TextArea, TextInput, Video, Image } from "grommet";
 import { Heading } from '../src/heading.component'
 import { Breadcrumb } from '../src/breadcrumb.component'
+import { Icon } from '../src/icon.component'
 
 import Logo from '../src/logo.component'
 import Subjects from '../src/landing/subjects'
@@ -265,7 +266,7 @@ class Components extends React.Component {
       <Provider>
         <Normalize/>
         <GlobalStyle/>
-        
+
           <Box pad="medium" overflow="auto">
             {Grid.available ? (
               <Grid columns="small" gap="medium">
@@ -338,14 +339,14 @@ storiesOf("Components Gallery", module).add("All", () => <Components />)
         und messen der abgerollten <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">Strecke</Anchor>.
         Auf diese Weise kannst du die <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.</p>
         <p>In der Abbildung rechts siehst du, wie ein Kreis mit <Anchor href="/36162">Durchmesser</Anchor>
-        <b>d=1</b> abgerollt wird.</p><p>Sein Umfang beträgt 
+        <b>d=1</b> abgerollt wird.</p><p>Sein Umfang beträgt
         <b>π</b>, also etwa <b>3,14</b></p><p>Für den Umfang findest du so den folgenden Zusammenhang: </p><p>
         <b>U=2⋅r⋅π=d⋅π</b></p>
-        
+
       </StyledContent>
     </Box>
     <EditBox />
-    
+
   </Provider>
 )
 .add("Breadcrumb / Back to Taxonomy", () =>
@@ -376,13 +377,24 @@ storiesOf("Components Gallery", module).add("All", () => <Components />)
         und messen der abgerollten <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">Strecke</Anchor>.
         Auf diese Weise kannst du die <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.</p>
         <p>In der Abbildung rechts siehst du, wie ein Kreis mit <Anchor href="/36162">Durchmesser</Anchor>
-        <b>d=1</b> abgerollt wird.</p><p>Sein Umfang beträgt 
+        <b>d=1</b> abgerollt wird.</p><p>Sein Umfang beträgt
         <b>π</b>, also etwa <b>3,14</b></p><p>Für den Umfang findest du so den folgenden Zusammenhang: </p><p>
         <b>U=2⋅r⋅π=d⋅π</b></p>
-        
+
       </StyledContent>
     </Box>
-    
+
+  </Provider>
+)
+.add("IconTest", () =>
+  <Provider>
+    <Normalize/>
+    <GlobalStyle/>
+    <Box direction="row-responsive" pad="large" justify="center">
+      <Icon iconName='faFilter' size="2x" />
+      <Icon iconName='faYoutube'  size="2x" />
+    </Box>
+
   </Provider>
 )
 

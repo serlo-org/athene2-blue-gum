@@ -8,7 +8,7 @@ import { getColor } from '../provider.component'
 const renderItems = ( leaf: boolean | undefined, timestamp : Date ) => (
   <DropContent>
     {leaf ? null : (
-      <DropContentButton 
+      <DropContentButton
         label="Diskussion archivieren"
         iconName="check"
         backgroundColor="transparent"
@@ -16,14 +16,14 @@ const renderItems = ( leaf: boolean | undefined, timestamp : Date ) => (
         fontColor={getColor('darkGray')}
       />
     )}
-    <DropContentButton 
+    <DropContentButton
       label="Diskussion melden"
       iconName="flag"
       backgroundColor="transparent"
       activeBackgroundColor={getColor('lightblue')}
       fontColor={getColor('darkGray')}
     />
-    <DropContentButton 
+    <DropContentButton
       label="Diskussion löschen"
       iconName="trash"
       backgroundColor="transparent"

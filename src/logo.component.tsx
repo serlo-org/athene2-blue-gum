@@ -16,7 +16,7 @@ export default class Logo extends React.Component<Props> {
             <img alt="Serlo" src={logoSrc} />
           </a>
         </h1>
-        { !this.props.subline ? null : 
+        { !this.props.subline ? null :
         <h2>
           <a className="subline icon" href="#subject">
             {this.props.subline}

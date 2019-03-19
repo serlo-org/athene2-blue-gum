@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '../fontawesome'
+import { Icon } from '../icon.component'
 import { getColor } from '../provider.component';
 
 export interface Props {
@@ -18,7 +18,7 @@ export class SearchInput extends React.Component<Props> {
           value={this.props.value}
         />
         <button className="btn btn-success" type="submit">
-          <FontAwesomeIcon icon={['fas', 'search']} />
+          <Icon iconName='faSearch' />
         </button>
       </SearchWrap>
     )

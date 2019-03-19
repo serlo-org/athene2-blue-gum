@@ -6,6 +6,8 @@ import { SearchInput } from '../src/header/searchinput'
 import { Footer } from '../src/footer'
 import { MobileMenuButton } from '../src/header/mobilemenubutton'
 
+// import { Icon } from '../src/icon.component'
+
 import { Provider, GlobalStyle } from '../src/provider.component'
 import { Normalize } from 'styled-normalize'
 

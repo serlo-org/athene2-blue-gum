@@ -16,8 +16,8 @@ export interface Props {
 
 export function Heading(props : Props) {
 
-  const fontSizes = [1.5,1.5,1.3,1.2,1,1]
-  const fontSize = fontSizes[ parseInt(props.level) ] + "rem"
+  const fontSizes = [1.66,1.5,1.3,1.2,1,1]
+  const fontSize = fontSizes[ parseInt(props.level)-1 ] + "rem"
 
   return (
     <StyledHeading level={props.level} color={props.color} fontSize={fontSize}>
