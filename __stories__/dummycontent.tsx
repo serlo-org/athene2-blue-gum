@@ -42,7 +42,6 @@ export const footerNavEntries = [
   },
   {
     title: 'Dabei bleiben',
-    class: 'connect',
     children: [
       {
         title: 'Newsletter',

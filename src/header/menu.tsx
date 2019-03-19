@@ -4,18 +4,16 @@ import { Icon } from '../icon.component'
 import { getColor, transparentizeColor } from '../provider.component'
 import { Button, DropButton } from '../button.component'
 
-type Child = { title: string; url: string; icon?: string }
-type Entry = {
+export interface MenuEntry {
   title: string
-  class?: string
   icon?: string
   url: string
-  children: Child[]
-  highlight: boolean
+  children?: MenuEntry[]
+  highlight?: boolean
 }
 
 export interface Props {
-  links: Entry[]
+  links: MenuEntry[]
   className?: string
 }
 
@@ -41,24 +39,11 @@ export default function Menu({ links, className }: Props) {
   )
 }
 
-interface EntryProps {
-  href: string
-  title: string
+interface EntryProps extends MenuEntry {
   key: string
-  icon: string
-  isChild?: boolean
-  children?: Child[]
 }
 
-function Entry({
-  href,
-  title,
-  key,
-  icon,
-  isChild,
-  children,
-  highlight
-}: EntryProps) {
+function Entry({ url, title, key, icon, children, highlight }: EntryProps) {
   return (
     <Li>
       <Link
@@ -68,12 +53,12 @@ function Entry({
           ) : (
             <React.Fragment>
               {title}&thinsp;
-              <Icon icon='faCaretDown' />
+              <Icon icon="faCaretDown" />
             </React.Fragment>
           )
         }
         size={1}
-        href={href}
+        href={url}
         key={key}
         iconName={highlight && icon ? icon : undefined}
         active={highlight ? true : false}
@@ -92,7 +77,7 @@ function Entry({
   )
 }
 
-function Submenu({ entries }: { entries: Child[] }) {
+function Submenu({ entries }: { entries: MenuEntry[] }) {
   return (
     <ul>
       {entries.map((entry, index) => {
@@ -100,7 +85,7 @@ function Submenu({ entries }: { entries: Child[] }) {
         return (
           <Entry
             key={'__' + index}
-            href={entry.url}
+            url={entry.url}
             icon={entry.icon}
             title={entry.title}
           />
