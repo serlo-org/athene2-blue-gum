@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Box, Anchor } from 'grommet'
+import { Box } from 'grommet'
 import { Button, DropButton } from '../button.component'
 import * as moment from 'moment'
 import { getColor } from '../provider.component'
 
-const renderItems = ( leaf: boolean | undefined, timestamp : Date ) => (
+const renderItems = (leaf: boolean | undefined, timestamp: Date) => (
   <DropContent>
     {leaf ? null : (
       <DropContentButton
@@ -30,33 +30,43 @@ const renderItems = ( leaf: boolean | undefined, timestamp : Date ) => (
       activeBackgroundColor={getColor('lightblue')}
       fontColor={getColor('darkGray')}
     />
-    <Time>Gepostet am {moment(timestamp)
-            .locale('de')
-            .format('DD.MM.YYYY, HH:mm:ss ')}
+    <Time>
+      Gepostet am{' '}
+      {moment(timestamp)
+        .locale('de')
+        .format('DD.MM.YYYY, HH:mm:ss ')}
     </Time>
-
   </DropContent>
 )
 
-export default function MetaBar({author, timestamp, leaf}:{author: any, timestamp: Date, leaf: boolean | undefined}) {
+export default function MetaBar({
+  author,
+  timestamp,
+  leaf
+}: {
+  author: any
+  timestamp: Date
+  leaf: boolean | undefined
+}) {
   return (
     <MetaBarBox direction="row" justify="between">
-      <Button
+      <BoldButton
         label={author.username}
         iconName="faUserGraduate"
         href={`https://serlo.org/${author.id}`}
         backgroundColor="transparent"
         activeBackgroundColor={getColor('lightblue')}
         fontColor={getColor('brand')}
-        style={{fontWeight: 'bold'}}
       />
       <span>
         <StyledDropButton
           dropAlign={{ top: 'bottom', right: 'right' }}
           dropContent={renderItems(leaf, timestamp)}
-          iconName='faCaretDown'
+          iconName="faCaretDown"
           fontColor={getColor('lighterblue')}
           activeFontColor={'#fff'}
+          backgroundColor="transparent"
+          activeBackgroundColor={getColor('lightblue')}
           reverse
           label={moment(timestamp)
             .locale('de')
@@ -68,30 +78,33 @@ export default function MetaBar({author, timestamp, leaf}:{author: any, timestam
   )
 }
 
-
-const Time = styled.span `
-  font-size: .65rem;
+const Time = styled.span`
+  font-size: 0.65rem;
   text-align: center;
-  color: ${ getColor('lighterblue') };
+  color: ${getColor('lighterblue')};
   margin-top: 1rem;
 `
 
-const DropContent = styled(Box) `
-  background-color: ${ getColor('bluewhite') };
-  padding: 1rem .5rem .5rem .5rem;
-` as typeof Box
+const BoldButton = styled(Button)`
+  font-weight: bold;
+`
 
-const DropContentButton = styled(Button) `
-  margin-bottom: .2rem;
-` as typeof Button
+const DropContent = styled(Box)`
+  background-color: ${getColor('bluewhite')};
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+`
 
-const MetaBarBox = styled(Box) `
+const DropContentButton = styled(Button)`
+  margin-bottom: 0.2rem;
+`
+
+const MetaBarBox = styled(Box)`
   color: #222;
-  margin-bottom: .3rem;
-` as typeof Box
+  margin-bottom: 0.3rem;
+`
 
-const StyledDropButton = styled(DropButton) `
-  >svg {
+const StyledDropButton = styled(DropButton)`
+  > svg {
     width: 1.3rem;
     height: 1.3rem;
   }

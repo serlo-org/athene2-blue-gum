@@ -4,8 +4,8 @@ import { Icon } from './icon.component'
 
 import {
   Button as GrommetButton,
-  ButtonProps as grommetButtonProps,
-  DropButton as GrommetDropButton
+  DropButton as GrommetDropButton,
+  ButtonProps as grommetButtonProps
 } from 'grommet'
 
 import { getColor, getDefaultTransition } from './provider.component'
@@ -22,6 +22,14 @@ export interface ButtonProps extends grommetButtonProps {
   activeFontColor?: string
   activeBackgroundColor?: string
   className?: string
+  dropAlign?: {
+    top?: 'top' | 'bottom'
+    bottom?: 'top' | 'bottom'
+    right?: 'left' | 'right'
+    left?: 'left' | 'right'
+  }
+  dropContent?: JSX.Element
+  dropTarget?: object
 }
 
 Button.defaultProps = {
@@ -32,7 +40,7 @@ Button.defaultProps = {
   activeBackgroundColor: getColor('brand'),
   activeFontColor: '#fff',
   fontColor: '#fff',
-  onClick: () => {}
+  as: GrommetButton
 }
 
 export function Button(props: ButtonProps) {
@@ -43,11 +51,12 @@ export function Button(props: ButtonProps) {
         className={props.className}
         a11yTitle={props.title}
         plain
+        as={props.as}
         icon={
           props.iconName ? (
             <StyledIcon
-              color={props.iconColor}
-              activeColor={props.activeIconColor}
+              iconColor={props.iconColor}
+              activeIconColor={props.activeIconColor}
               active={props.active}
               label={props.label}
               icon={props.iconName}
@@ -62,39 +71,15 @@ export function Button(props: ButtonProps) {
 }
 
 export function DropButton(props: ButtonProps) {
-  return (
-    <ButtonWrap size={props.size}>
-      <StyledButton
-        {...props}
-        className={props.className}
-        a11yTitle={props.title}
-        plain
-        icon={
-          props.iconName ? (
-            <StyledIcon
-              color={props.iconColor}
-              activeColor={props.activeIconColor}
-              active={props.active}
-              label={props.label}
-              icon={props.iconName}
-            />
-          ) : (
-            undefined
-          )
-        }
-        as={GrommetDropButton}
-      />
-    </ButtonWrap>
-  )
+  return <Button {...{ ...props, as: GrommetDropButton }} />
 }
 
-const ButtonWrap = styled.div`
+const ButtonWrap = styled.div<ButtonProps>`
   display: inline-block;
-
-  font-size: ${({ size }: { size?: number }) => size + 'rem'};
+  font-size: ${props => props.size + 'rem'};
 `
 
-const StyledButton = styled(GrommetButton)`
+const StyledButton = styled(GrommetButton)<ButtonProps>`
   font-size: 1em;
 
   display: block;
@@ -129,23 +114,32 @@ const StyledButton = styled(GrommetButton)`
     `}
 `
 
-export const StyledIcon = styled(Icon)`
+interface StyledIconProps {
+  iconColor?: string
+  activeIconColor?: string
+  active?: boolean
+  [propName: string]: any
+}
+// iconColor = { props.iconColor }
+// activeIconColor = { props.activeIconColor }
+// active = { props.active }
+// label = { props.label }
+// iconName = { props.iconName }
+
+const StyledIcon = styled(Icon)<StyledIconProps>`
   width: 1.5em !important;
   height: 1.5em !important;
   vertical-align: -0.4em;
 
-  color: ${props => (props.active ? props.activeColor : props.color)};
+  color: ${props => (props.active ? props.activeIconColor : props.iconColor)};
 
-  /* transition: ${getDefaultTransition()}; */
-
-  ${StyledButton}:hover &{
-    color: ${props => (!props.active ? props.activeColor : props.color)};
-    background-color: ${props =>
-      !props.active ? props.activeBackgroundColor : props.backgroundColor};
+  ${StyledButton}:hover & {
+    color: ${props =>
+      !props.active ? props.activeIconColor : props.iconColor};
   }
 
-  ${({ label }: { label?: string }) =>
-    label &&
+  ${props =>
+    props.label &&
     css`
       width: 0.9em !important;
       height: 0.9em !important;
