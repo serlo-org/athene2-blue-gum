@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { UserContext, EntityContext } from '../../src/context'
 import TextareaAutosize from 'react-textarea-autosize'
 import { Box } from 'grommet'
@@ -106,7 +106,7 @@ const StyledTextarea = styled(TextareaAutosize)`
 
   ${props =>
     props.focused
-      ? `
+      ? css`
     min-height: 3rem;
     background: ${lightenColor('brandGreen', 0.35)};
     `

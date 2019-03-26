@@ -36,7 +36,7 @@ const theme = {
   global: {
     colors: {
       //'active': 'rgba(221,221,221,0.5)',
-      'black': '#000000',
+      black: '#000000',
       //'border': {
       //  'dark': 'rgba(255,255,255,0.33)',
       //  'light': 'rgba(0,0,0,0.33)'
@@ -96,7 +96,7 @@ const theme = {
       large: '.4rem',
       xlarge: '1rem'
     },
-    defaultTransition: 'all .2s ease-in-out;',
+    defaultTransition: 'all .2s ease-in-out;'
     // font: {
     //   size: '16px',
     //   height: '22px',
@@ -115,14 +115,14 @@ const theme = {
       textDecoration: 'none'
     },
     extend: props => {
-      const lightBlue = transparentize(0.35,props.theme.global.colors.brand)
+      const lightBlue = transparentize(0.35, props.theme.global.colors.brand)
       return `
         padding: 0 .15em;
         &:hover {
           color: #fff;
-          background-color: ${ lightBlue };
+          background-color: ${lightBlue};
           border-radius: .25em;
-          box-shadow: 0 0 0 .03em ${ lightBlue };
+          box-shadow: 0 0 0 .03em ${lightBlue};
         }
       `
     }
@@ -147,10 +147,10 @@ const theme = {
         border-radius: .5rem;
         /* icon distance */
         > div > div {
-          ${ props.hasIcon ? 'width: .3em;' : '' }
+          ${props.hasIcon ? 'width: .3em;' : ''}
         }
         > div > svg {
-          ${ props.hasIcon ? 'width: 0.75em' : '' }
+          ${props.hasIcon ? 'width: 0.75em' : ''}
         }
         ${
           props.secondary
@@ -158,7 +158,7 @@ const theme = {
             : ''
         }
         ${props.colorValue || props.primary ? 'color: #fff' : ''}
-        
+
         &:hover {
           box-shadow: none;
           background-color: ${transparentize(0.5, backgroundColor)};
@@ -169,30 +169,37 @@ const theme = {
   }
 }
 
-
-export function getColor( colorName: keyof (typeof theme)["global"]["colors"]) : string {
+export function getColor(
+  colorName: keyof (typeof theme)['global']['colors']
+): string {
   return theme.global.colors[colorName]
 }
 
-export function lightenColor( colorName: keyof (typeof theme)["global"]["colors"], amount: number ) : string {
-  return lighten(amount,theme.global.colors[colorName]);
+export function lightenColor(
+  colorName: keyof (typeof theme)['global']['colors'],
+  amount: number
+): string {
+  return lighten(amount, theme.global.colors[colorName])
 }
 
-export function transparentizeColor( colorName: keyof (typeof theme)["global"]["colors"], amount: number ) : string {
-  return transparentize(amount,theme.global.colors[colorName]);
+export function transparentizeColor(
+  colorName: keyof (typeof theme)['global']['colors'],
+  amount: number
+): string {
+  return transparentize(amount, theme.global.colors[colorName])
 }
 
 export function getDefaultTransition() {
-  return theme.global.defaultTransition;
+  return theme.global.defaultTransition
 }
 
-export function getBreakpoint( pointName: keyof (typeof theme)["flexboxgrid"]["breakpoints"]) : string {
-  return theme.flexboxgrid.breakpoints[pointName]+"rem";
+export function getBreakpoint(
+  pointName: keyof (typeof theme)['flexboxgrid']['breakpoints']
+): string {
+  return theme.flexboxgrid.breakpoints[pointName] + 'rem'
 }
 
 // export function getColor<K extends keyof (typeof theme)["global"]["colors"]>( colorName: K): ((typeof theme)["global"]["colors"][K]) {
-
-
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -219,12 +226,12 @@ html  {
 	html{
 		font-size: 20px;
   }
-  
+
 	/*.container{
 		max-width: 56rem !important;
 		position: relative;
   }
-  
+
 	.wide-container{
 		padding: 0 4rem;
 	}*/
