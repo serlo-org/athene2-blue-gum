@@ -20,7 +20,7 @@ const icons: iconObject  = {
 
 type AllowedIcons = keyof (typeof icons)
 
-type Props = Exclude<"icon", FontAwesomeProps> & { icon: AllowedIcons }
+type Props = Exclude<"icon", FontAwesomeProps> & { icon: AllowedIcons, className: string, size: string }
 
 // interface Props extends Exclude<"icon", FontAwesomeProps>{
 //   icon: AllowedIcons
