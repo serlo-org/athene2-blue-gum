@@ -8,17 +8,28 @@ import Logo from '../logo.component'
 import { SearchInput } from './searchinput'
 
 const topNavLinks = [
-  { title: '', class: 'seperator'},
+  { title: '', class: 'seperator' },
   { title: 'Neu hier?', url: 'https://google.de', icon: 'faQuestionCircle' },
   { title: 'Anmelden', url: '#', icon: 'faUserCircle' },
-  { title: '', class: 'seperator'},
+  { title: '', class: 'seperator' },
   { title: 'Lernen', url: '#', icon: 'faArrowCircleRight' },
-  { title: 'Was ist Serlo?', url: '#', icon: 'faNewspaper', children: [
-      {title: 'Action', url: '#'},
-      {title: 'Test', url: '#'},
-      {title: 'Längerer Eintrag', url: '#'},
-  ]},
-  { title: 'Spenden', url: '#', class: 'donate', icon: 'faHandHoldingHeart', highlight: true },
+  {
+    title: 'Was ist Serlo?',
+    url: '#',
+    icon: 'faNewspaper',
+    children: [
+      { title: 'Action', url: '#' },
+      { title: 'Test', url: '#' },
+      { title: 'Längerer Eintrag', url: '#' }
+    ]
+  },
+  {
+    title: 'Spenden',
+    url: '#',
+    class: 'donate',
+    icon: 'faHandHoldingHeart',
+    highlight: true
+  }
 ]
 
 export function Header() {
@@ -29,7 +40,7 @@ export function Header() {
       <TopNavWrap>
         <StyledMobileMenu links={topNavLinks} overlayTarget={overlayTarget} />
 
-        <StyledMenu links={topNavLinks}/>
+        <StyledMenu links={topNavLinks} />
 
         <Box pad="medium" background="brand">
           <Logo subline="Super good Serlo Slogan" />
@@ -38,8 +49,6 @@ export function Header() {
         <SearchInput />
         <div id="test" ref={overlayTargetRef} />
       </TopNavWrap>
-
-
     </React.Fragment>
   )
 }
@@ -47,8 +56,10 @@ export function Header() {
 function useOverlayTarget<E extends HTMLElement>(): [
   E | undefined,
   React.LegacyRef<E>
-  ] {
-  const [overlayTarget, setOverlayTarget] = React.useState<E | undefined>(undefined)
+] {
+  const [overlayTarget, setOverlayTarget] = React.useState<E | undefined>(
+    undefined
+  )
   const refCallback: React.LegacyRef<E> = ref => {
     if (ref && ref !== overlayTarget) {
       setOverlayTarget(ref)
@@ -67,19 +78,19 @@ const TopNavWrap = styled.div(props => {
   }
 })
 
-const StyledMobileMenu = styled(MobileMenu) `
+const StyledMobileMenu = styled(MobileMenu)`
   display: block;
-  @media screen and (min-width: ${ getBreakpoint('sm') }) {
+  @media screen and (min-width: ${getBreakpoint('sm')}) {
     display: none;
   }
 `
 
-const StyledMenu = styled(Menu) `
+const StyledMenu = styled(Menu)`
   display: none;
-  @media screen and (min-width: ${ getBreakpoint('sm') }) {
+  @media screen and (min-width: ${getBreakpoint('sm')}) {
     display: block;
-    background-color: ${getColor("lighterblue")};
+    background-color: ${getColor('lighterblue')};
     height: 3rem;
-    color: ${getColor("brand")};
+    color: ${getColor('brand')};
   }
 `

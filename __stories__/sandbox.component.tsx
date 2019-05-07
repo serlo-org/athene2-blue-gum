@@ -49,10 +49,10 @@ storiesOf('Header', module)
           }}
         >
           <p style={{ position: 'relative' }}>
-            <MobileMenuButton open={false} onClick={() => alert('open!')} />
+            <MobileMenuButton open={false} />
           </p>
           <p style={{ position: 'relative', top: '2rem' }}>
-            <MobileMenuButton open={true} onClick={() => alert('close!')} />
+            <MobileMenuButton open={true} />
           </p>
         </div>
       </Provider>
