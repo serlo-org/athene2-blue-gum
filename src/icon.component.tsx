@@ -30,6 +30,6 @@ const getIcon = (name: string) => icons[name]
 
 export function Icon(props: Props) {
   return (
-    <FontAwesomeIcon {...props} icon={getIcon(props.icon)} />
+    <FontAwesomeIcon className={props.className} size={props.size} icon={getIcon(props.icon)} />
   )
 }
