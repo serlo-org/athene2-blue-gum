@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
 import { Comments } from '../src/comments.component'
-import { Provider, GlobalStyle } from '../src/provider.component'
+import { Provider, GlobalStyle, getColor } from '../src/provider.component'
 import { Normalize } from 'styled-normalize'
 
 import {
@@ -55,6 +55,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 import { EditBox } from '../src/editbox.component'
+import { CourseOverview } from '../src/courseoverview.component'
 
 const Node = ({ id, ...rest }) => (
   <Box
@@ -550,7 +551,7 @@ storiesOf('Components Gallery', module)
     </Provider>
   ))
 
-  .add('Course overview', () => (
+  .add('Course Overview', () => (
     <Provider>
       <Normalize />
       <GlobalStyle />
@@ -561,14 +562,17 @@ storiesOf('Components Gallery', module)
           width="large"
           style={{ opacity: 1 }}
         >
+          <CourseOverview />
+
           <Heading level={1} icon="newspaper">
             2. Prozente aus dem Alltag
           </Heading>
           <p>
-            Die Prozentrechnung ist ein schönes Thema, um Schüler zu quälen. Am
-            Anfang ist ja noch alles irgendwie einfach, aber sobald man die
-            Formeln einführt und erwartet, dass die Schüler diese flexibel
-            einsetzen, dann beginnt die Hölle.
+            Das Prozentzeichen ist aus vielen Situationen bekannt. Häufig findet
+            man es im Supermarkt, bei Wahlergebnissen, auf Lebensmitteln und bei
+            vielem mehr. Bei einigen Prozentangaben weiß man sofort, was gemeint
+            ist, wohingegen man sich zu anderen Prozentangaben weniger
+            vorstellen kann.
           </p>
 
           <Heading level={2}>Beispiele</Heading>
