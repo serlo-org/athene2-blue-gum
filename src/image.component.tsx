@@ -1,10 +1,18 @@
 import * as React from 'react'
 import styled from 'styled-components'
+// @ts-ignore
 import LazyLoad from 'react-lazy-load'
 
-export function Image(props) {
+interface ImageProps {
+  maxWidth?: number
+  src: string
+  alt: string
+  caption?: string
+}
+
+export function Image(props: ImageProps) {
   return (
-    <ImgWrapper maxWidth={props.maxWidth}>
+    <ImgWrapper maxWidth={props.maxWidth ? props.maxWidth : 0}>
       <LazyLoad>
         <Img src={props.src} alt={props.alt} />
       </LazyLoad>
