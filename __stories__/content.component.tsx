@@ -41,9 +41,35 @@ storiesOf('Content Components', module)
           kann.
         </p>
         <Image
-          caption="Sportler sagen oft, sie würden 100% im Wettkampf geben"
+          caption="Sportler sagen oft, sie würden 100% im Wettkampf geben."
+          alt="Turner bei Wettkampf"
           src="https://assets.serlo.org/legacy/5501645e70c35_41ce6d55bba98c3b75b11cda55edbdd4396ba380.jpg"
         />
+        <div style={{ height: 200 }} />
+        <p>Scrolle weiter ...</p>
+        <div style={{ height: 200 }} />
+        <p>Scrolle weiter ...</p>
+        <div style={{ height: 200 }} />
+        <p>Scrolle weiter ...</p>
+        <div style={{ height: 200 }} />
+        <p>
+          Die 50% in der Akkuanzeige bedeuten offenbar, dass noch die Hälfte der
+          Akkuleistung zur Verfügung steht. Man sagt dann oft "der Akku wäre
+          noch halb voll".
+        </p>
+        <Image
+          caption="Prozentanzeige für den Akkustand"
+          alt="Akkustand Symbol"
+          src="https://assets.serlo.org/legacy/5501664bbf35b_a6939af75e1532d9027d2bc2e7a8d6721f73beeb.jpg"
+        />
+        <p>
+          {' '}
+          Das Ziel dieses Kurses ist, dass du anschließend mit dem
+          Prozentzeichen umgehen kannst und die Grundprinzipien der
+          Prozentrechnung verinnerlicht hast. Im Folgenden wird erklärt, was das
+          Prozentzeichen bedeutet und wie Prozentzahlen, Dezimalzahlen und
+          Bruchzahlen zusammenhängen.
+        </p>
       </Box>
     </Provider>
   ))
