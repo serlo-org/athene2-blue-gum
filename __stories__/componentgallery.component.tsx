@@ -550,6 +550,38 @@ storiesOf('Components Gallery', module)
     </Provider>
   ))
 
+  .add('Course overview', () => (
+    <Provider>
+      <Normalize />
+      <GlobalStyle />
+      <Box direction="row-responsive" justify="center">
+        <StyledContent
+          pad="large"
+          alignSelf="center"
+          width="large"
+          style={{ opacity: 1 }}
+        >
+          <Heading level={1} icon="newspaper">
+            2. Prozente aus dem Alltag
+          </Heading>
+          <p>
+            Die Prozentrechnung ist ein schönes Thema, um Schüler zu quälen. Am
+            Anfang ist ja noch alles irgendwie einfach, aber sobald man die
+            Formeln einführt und erwartet, dass die Schüler diese flexibel
+            einsetzen, dann beginnt die Hölle.
+          </p>
+
+          <Heading level={2}>Beispiele</Heading>
+          <p>
+            Beim Elfmeterschießen berichten Fußballkommentatoren oft von
+            sogenannten Trefferquoten. Ein guter Elfmeterschütze hat zum
+            Beispiel eine Trefferquote von 90%.
+          </p>
+        </StyledContent>
+      </Box>
+    </Provider>
+  ))
+
 const StyledContent = styled(Box)`
   p {
     margin-top: 0;
