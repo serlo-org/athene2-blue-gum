@@ -1,12 +1,15 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Button } from './button.component'
+import { Button, DropButton } from './button.component'
+import { Box } from 'grommet'
 import {
   getColor,
   getDefaultTransition,
-  lightenColor
+  lightenColor,
+  getBreakpoint
 } from './provider.component'
 import { useScrollYPosition } from 'react-use-scroll-position'
+import useWindowSize from '@rehooks/window-size'
 
 export function EditBox(props) {
   const scrollY = useScrollYPosition()
@@ -20,20 +23,23 @@ export function EditBox(props) {
           <SummaryButton
             label="Inhalt bearbeiten"
             iconName="faPencilAlt"
-            fontColor={getColor('lighterblue')}
+            fontColor={getColor('brandGreen')}
             backgroundColor="transparent"
-            activeBackgroundColor={getColor('lighterblue')}
+            activeBackgroundColor={getColor('brandGreen')}
             size={0.8}
             reverse
           />
-          <SummaryButton
-            label="Versionsgeschichte"
-            iconName="faHistory"
-            fontColor={getColor('lighterblue')}
+          <SummaryDropButton
+            dropContent={renderItems()}
+            iconName="faCog"
+            fontColor={getColor('brandGreen')}
             backgroundColor="transparent"
-            activeBackgroundColor={getColor('lighterblue')}
+            activeBackgroundColor={getColor('brandGreen')}
             size={0.8}
             reverse
+            label="Weitere Funktionen"
+            dropAlign={{ bottom: 'top', right: 'right' }}
+            {...!summary && { open: false }}
           />
         </p>
       </Summary>
@@ -51,6 +57,74 @@ export function EditBox(props) {
   )
 }
 
+const renderItems = () => (
+  <DropContent>
+    <DropContentButton
+      iconName="faVolumeUp"
+      label="Abbonieren"
+      backgroundColor="transparent"
+      activeBackgroundColor={getColor('brandGreen')}
+      fontColor={getColor('darkGray')}
+      size={0.8}
+      reverse
+    />
+    <DropContentButton
+      iconName="faHistory"
+      label="Bearbeitungsverlauf"
+      backgroundColor="transparent"
+      activeBackgroundColor={getColor('brandGreen')}
+      fontColor={getColor('darkGray')}
+      size={0.8}
+      reverse
+    />
+    <DropContentButton
+      iconName="faPencilAlt"
+      label="Konvertieren"
+      backgroundColor="transparent"
+      activeBackgroundColor={getColor('brandGreen')}
+      fontColor={getColor('darkGray')}
+      size={0.8}
+      reverse
+    />
+    <DropContentButton
+      iconName="faMapMarker"
+      label="Zuweisung zu Themen und Lehrplänen bearbeiten"
+      backgroundColor="transparent"
+      activeBackgroundColor={getColor('brandGreen')}
+      fontColor={getColor('darkGray')}
+      size={0.8}
+      reverse
+    />
+    <DropContentButton
+      iconName="faLink"
+      label="Zugehörige Inhalte verwalten"
+      backgroundColor="transparent"
+      activeBackgroundColor={getColor('brandGreen')}
+      fontColor={getColor('darkGray')}
+      size={0.8}
+      reverse
+    />
+    <DropContentButton
+      iconName="faFlag"
+      label="Inhalt melden"
+      backgroundColor="transparent"
+      activeBackgroundColor={getColor('brandGreen')}
+      fontColor={getColor('darkGray')}
+      size={0.8}
+      reverse
+    />
+    <DropContentButton
+      iconName="faHeartbeat"
+      label="Verlauf"
+      backgroundColor="transparent"
+      activeBackgroundColor={getColor('brandGreen')}
+      fontColor={getColor('darkGray')}
+      size={0.8}
+      reverse
+    />
+  </DropContent>
+)
+
 const SummaryButton = styled(Button)`
   margin-left: -0.3em;
   svg {
@@ -59,67 +133,99 @@ const SummaryButton = styled(Button)`
   }
 `
 
-const Summary = styled.div`
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-
-  font-size: 0.8rem;
-  width: 10rem;
-  color: ${getColor('lighterblue')};
-
-  border-left: 0.15rem solid ${lightenColor('brand', 0.55)};
-  padding: 0.2rem 0 0.2rem 0.5rem;
-
-  > p {
-    margin-bottom: 0;
+const SummaryDropButton = styled(DropButton)`
+  margin-left: -0.3em;
+  svg {
+    width: 1em !important;
+    height: 1em !important;
   }
+`
 
-  transition: opacity 0.2s ease-in-out;
-  opacity: ${props => (props.show ? 1 : 0)};
-  pointer-events: ${props => (props.show ? 'all' : 'none')};
+const Summary = styled.div`
+  display: none;
+
+  @media screen and (min-width: ${getBreakpoint('md')}) {
+    display: block;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+
+    font-size: 0.8rem;
+    width: 10rem;
+    color: ${getColor('brandGreen')};
+    font-weight: bold;
+
+    border-left: 0.15rem solid ${lightenColor('brandGreen', 0.3)};
+    padding: 0.2rem 0 0.2rem 0.5rem;
+
+    > p {
+      margin-bottom: 0;
+    }
+
+    /* transition: opacity 0.2s ease-in-out; */
+    opacity: ${props => (props.show ? 1 : 0)};
+    pointer-events: ${props => (props.show ? 'all' : 'none')};
+  }
 `
 const StyledButton = styled(Button)`
-  position: fixed;
-  bottom: 4rem;
-  right: 7rem;
-  text-align: right;
+  display: none;
+  @media screen and (min-width: ${getBreakpoint('md')}){
+    display: block;
+    position: fixed;
+    bottom: 4rem;
+    right: 7rem;
+    text-align: right;
 
-  transition: opacity .2s ease-in-out;
-  opacity: ${props => (props.show ? 1 : 0)};
-  pointer-events: ${props => (props.show ? 'all' : 'none')};
+    transition: opacity .2s ease-in-out;
+    opacity: ${props => (props.show ? 1 : 0)};
+    pointer-events: ${props => (props.show ? 'all' : 'none')};
 
-  @media screen and (hover: hover) {
-    &:hover {
-      width: 7.5rem;
+    @media screen and (hover: hover) {
+      &:hover {
+        width: 7.5rem;
+      }
+      &:before {
+        position: absolute;
+        text-align: right;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        width: 5rem;
+        left: 0;
+        top: .27rem;
+        content: "${props => props.hiddenLabel}";
+        display: inline-block;
+        color: #fff;
+        transition: none;
+        transition-delay: 0;
+        opacity: 0;
+      }
+
+      &:hover:before {
+        opacity: 1;
+        transition: ${getDefaultTransition()};
+        transition-delay: 0.05s;
+      }
     }
-    &:before {
-      position: absolute;
-      text-align: right;
-      font-size: 0.8rem;
-      line-height: 1.2;
-      width: 5rem;
-      left: 0;
-      top: .27rem;
-      content: "${props => props.hiddenLabel}";
-      display: inline-block;
-      color: #fff;
-      transition: none;
-      transition-delay: 0;
-      opacity: 0;
-    }
 
-    &:hover:before {
-      opacity: 1;
-      transition: ${getDefaultTransition()};
-      transition-delay: 0.05s;
+    > svg {
+      width: 1.3rem !important;
+      height: 1.3rem !important;
+      vertical-align: -0.2em;
+      margin-right: .6rem;
     }
   }
+`
 
-  > svg {
-    width: 1.3rem !important;
-    height: 1.3rem !important;
-    vertical-align: -0.2em;
-    margin-right: .6rem;
+const DropContentButton = styled(Button)`
+  display: inline-block;
+`
+
+const DropContent = styled(Box)`
+  background-color: ${getColor('bluewhite')};
+  background-color: ${lightenColor('brandGreen', 0.45)};
+
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  > div {
+    text-align: right;
   }
 `
