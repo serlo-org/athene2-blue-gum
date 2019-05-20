@@ -1,8 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import { Comments } from '../src/comments.component'
-import { Provider, GlobalStyle, getColor } from '../src/provider.component'
+import { Provider, GlobalStyle } from '../src/provider.component'
 import { Normalize } from 'styled-normalize'
 
 import {
@@ -55,7 +54,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 import { EditBox } from '../src/editbox.component'
-import { CourseOverview } from '../src/courseoverview.component'
+import { Course } from '../src/course.component'
 
 const Node = ({ id, ...rest }) => (
   <Box
@@ -555,34 +554,41 @@ storiesOf('Components Gallery', module)
     <Provider>
       <Normalize />
       <GlobalStyle />
-      <Box direction="row-responsive" justify="center">
-        <StyledContent
-          pad="large"
-          alignSelf="center"
-          width="large"
-          style={{ opacity: 1 }}
-        >
-          <CourseOverview />
+      <div style={{ height: 30 }} />
+      <Course
+        courseTitle="Einführung des Prozentzeichens und seiner Umrechnung"
+        pages={[
+          'Übersicht',
+          'Prozente aus dem Alltag',
+          'Prozent - Eine neue Zahldarstellung',
+          'Prozentzahlen über 100%',
+          'Umformungen von Prozentzahlen und Dezimalzahlen',
+          'Übungsaufgaben zur Umrechnung von Prozentzahlen und Dezimalzahlen',
+          'Umrechnungen von Prozentzahlen und Bruchzahlen',
+          'Übungsaufgaben zur Umrechnung von Prozentzahlen und Bruchzahlen',
+          'Vorstellungen zu Prozenten und Brüchen',
+          'Grafische Veranschaulichung',
+          'Grafische Veranschaulichung - Übungsaufgaben',
+          'Zusammenfassung',
+          'Zeig, was du kannst!'
+        ]}
+        currentPage={2}
+      >
+        <p>
+          Das Prozentzeichen ist aus vielen Situationen bekannt. Häufig findet
+          man es im Supermarkt, bei Wahlergebnissen, auf Lebensmitteln und bei
+          vielem mehr. Bei einigen Prozentangaben weiß man sofort, was gemeint
+          ist, wohingegen man sich zu anderen Prozentangaben weniger vorstellen
+          kann.
+        </p>
 
-          <Heading level={1} icon="newspaper">
-            2. Prozente aus dem Alltag
-          </Heading>
-          <p>
-            Das Prozentzeichen ist aus vielen Situationen bekannt. Häufig findet
-            man es im Supermarkt, bei Wahlergebnissen, auf Lebensmitteln und bei
-            vielem mehr. Bei einigen Prozentangaben weiß man sofort, was gemeint
-            ist, wohingegen man sich zu anderen Prozentangaben weniger
-            vorstellen kann.
-          </p>
-
-          <Heading level={2}>Beispiele</Heading>
-          <p>
-            Beim Elfmeterschießen berichten Fußballkommentatoren oft von
-            sogenannten Trefferquoten. Ein guter Elfmeterschütze hat zum
-            Beispiel eine Trefferquote von 90%.
-          </p>
-        </StyledContent>
-      </Box>
+        <Heading level={2}>Beispiele</Heading>
+        <p>
+          Beim Elfmeterschießen berichten Fußballkommentatoren oft von
+          sogenannten Trefferquoten. Ein guter Elfmeterschütze hat zum Beispiel
+          eine Trefferquote von 90%.
+        </p>
+      </Course>
     </Provider>
   ))
 
