@@ -7,6 +7,9 @@ import { faComments, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import CommentForm from './commentform'
 import { Comment } from './comment'
 
+// @ts-ignore
+import LazyLoad from 'react-lazy-load'
+
 export function Comments({ data, onSendComment }: CommentsProps) {
   console.log(data)
   return (
@@ -26,17 +29,21 @@ export function Comments({ data, onSendComment }: CommentsProps) {
         </Heading>
         {/* todo: calculate amount of comments (and children) or get from server */}
 
-        {data
-          ? data.map(comment => {
-              return (
-                <Comment
-                  key={comment.id}
-                  {...comment}
-                  onSendComment={onSendComment}
-                />
-              )
-            })
-          : null}
+        <LazyLoad offset={200} once placeholder={<div>Loading…</div>}>
+          <div>
+            {data
+              ? data.map(comment => {
+                  return (
+                    <Comment
+                      key={comment.id}
+                      {...comment}
+                      onSendComment={onSendComment}
+                    />
+                  )
+                })
+              : null}
+          </div>
+        </LazyLoad>
       </CommentBox>
     </React.Fragment>
   )

@@ -35,7 +35,7 @@ export function Comment({
           border={{
             side: 'left',
             color: leaf ? '#BFDEEF' : 'transparent',
-            size: 'large'
+            size: leaf ? 'large' : 'xsmall'
           }}
         >
           {entity !== undefined
