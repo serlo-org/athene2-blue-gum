@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { getColor } from '../provider.component'
+import { getColor, lightenColor } from '../provider.component'
 import { DropButton } from 'grommet'
 import { Button } from '../button.component'
 
@@ -24,7 +24,10 @@ export function MobileMenuButton({
         iconName={open ? 'faTimes' : 'faBars'}
         active={open}
         size={1.1}
-        activeBackgroundColor={getColor('lighterblue')}
+        backgroundColor={lightenColor('lighterblue', 0.18)}
+        iconColor={getColor('brand')}
+        activeIconColor={getColor('brand')}
+        activeBackgroundColor={lightenColor('lighterblue', 0.1)}
         onClick={onClick}
       />
       <HiddenDropButton
@@ -38,7 +41,7 @@ export function MobileMenuButton({
 
 const HiddenDropButton = styled(DropButton)`
   display: none;
-` as typeof DropButton
+`
 
 const MenuButton = styled(Button)`
   position: absolute;

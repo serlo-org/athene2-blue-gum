@@ -87,6 +87,7 @@ const theme = {
       lighterblue: '#91c5e4',
       bluewhite: '#f0f7fb',
       helperblue: '#00b4d5',
+      white: '#fff',
       transparent: 'rgba(255,255,255,0)'
     },
     borderSize: {
