@@ -8,6 +8,8 @@ import { Footer } from '../src/footer'
 import { Nav } from '../src/footer/nav'
 import { MobileMenuButton } from '../src/header/mobilemenubutton'
 import { EditBox } from '../src/editbox.component'
+import { Comments } from '../src/comments'
+import { UserContext, EntityContext } from '../src/context'
 
 // import { Icon } from '../src/icon.component'
 import { Provider, GlobalStyle } from '../src/provider.component'
@@ -97,85 +99,181 @@ storiesOf('Footer', module)
 
 storiesOf('Example Page', module).add('test', () => {
   return (
-    <Provider>
-      <Normalize />
-      <GlobalStyle />
-      <Header links={topNavLinks} />
+    <UserContext.Provider value={{ user: { id: '1', username: 'aeneas' } }}>
+      <EntityContext.Provider
+        value={{ entity: { id: '1234', label: 'Aufgabe' } }}
+      >
+        <Provider>
+          <Normalize />
+          <GlobalStyle />
+          <Header links={topNavLinks} />
 
-      <Box direction="row-responsive" justify="center">
-        <StyledContent
-          pad="large"
-          alignSelf="center"
-          width="large"
-          style={{ opacity: 1 }}
-        >
-          <Breadcrumb aprop />
+          <Box direction="row-responsive" justify="center">
+            <StyledContent
+              pad="large"
+              alignSelf="center"
+              width="large"
+              style={{ opacity: 1 }}
+            >
+              <Breadcrumb aprop />
 
-          <Heading level={1} icon="newspaper">
-            Example Content
-          </Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+              <Heading level={1} icon="newspaper">
+                Example Content
+              </Heading>
+              <p>
+                Ein Kreis beschreibt die Menge aller Punkte, die denselben
+                Abstand rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst
+                du die folgenden Formeln kennen:
+              </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+              <Heading level={2}>Zusammenfassung</Heading>
+              <p>
+                Ein Kreis beschreibt die Menge aller Punkte, die denselben
+                Abstand rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst
+                du die folgenden Formeln kennen:
+              </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+              <Heading level={2}>Zusammenfassung</Heading>
+              <p>
+                Ein Kreis beschreibt die Menge aller Punkte, die denselben
+                Abstand rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst
+                du die folgenden Formeln kennen:
+              </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+              <Heading level={2}>Zusammenfassung</Heading>
+              <p>
+                Ein Kreis beschreibt die Menge aller Punkte, die denselben
+                Abstand rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst
+                du die folgenden Formeln kennen:
+              </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
-          <p>
-            Den <Anchor href="/36162">Umfang</Anchor> erhältst du durch Abrollen
-            des <Anchor href="/36162">Kreises</Anchor>
-            und messen der abgerollten{' '}
-            <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">
-              Strecke
-            </Anchor>
-            . Auf diese Weise kannst du die{' '}
-            <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.
-          </p>
-          <p>
-            In der Abbildung rechts siehst du, wie ein Kreis mit{' '}
-            <Anchor href="/36162">Durchmesser</Anchor>
-            <b>d=1</b> abgerollt wird.
-          </p>
-          <p>
-            Sein Umfang beträgt
-            <b>π</b>, also etwa <b>3,14</b>
-          </p>
-          <p>Für den Umfang findest du so den folgenden Zusammenhang: </p>
-          <p>
-            <b>U=2⋅r⋅π=d⋅π</b>
-          </p>
-        </StyledContent>
-      </Box>
-      <EditBox />
+              <Heading level={2}>Zusammenfassung</Heading>
+              <p>
+                Ein Kreis beschreibt die Menge aller Punkte, die denselben
+                Abstand rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst
+                du die folgenden Formeln kennen:
+              </p>
+              <p>
+                Den <Anchor href="/36162">Umfang</Anchor> erhältst du durch
+                Abrollen des <Anchor href="/36162">Kreises</Anchor>
+                und messen der abgerollten{' '}
+                <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">
+                  Strecke
+                </Anchor>
+                . Auf diese Weise kannst du die{' '}
+                <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.
+              </p>
+              <p>
+                In der Abbildung rechts siehst du, wie ein Kreis mit{' '}
+                <Anchor href="/36162">Durchmesser</Anchor>
+                <b>d=1</b> abgerollt wird.
+              </p>
+              <p>
+                Sein Umfang beträgt
+                <b>π</b>, also etwa <b>3,14</b>
+              </p>
+              <p>Für den Umfang findest du so den folgenden Zusammenhang: </p>
+              <p>
+                <b>U=2⋅r⋅π=d⋅π</b>
+              </p>
+            </StyledContent>
+          </Box>
+          <EditBox />
 
-      <Footer navEntries={footerNavEntries} slogan={serloSlogan} />
-    </Provider>
+          <Box direction="row-responsive" justify="center">
+            <Comments
+              data={[
+                {
+                  id: '1',
+                  body: `
+              Hallo Serlo-Team,
+
+              die erste Aufgabe im Subtraktionsblock hat ein Eingabefeld, der die Message "Type Answer" anzeigt. Außerdem wird das Feedback auch auf Englisch angezeigt ( = "wrong.")
+              Wie kann man solche Stellen bearbeiten?
+
+              Liebe Grüße
+              Sebastian
+            `,
+                  author: {
+                    id: '12345',
+                    username: 'SebSoGa'
+                  },
+                  timestamp: new Date(),
+                  children: [
+                    {
+                      id: '2',
+                      body: `
+                  Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
+
+                  LG,
+                  Nish
+                `,
+                      author: {
+                        id: '54321',
+                        username: 'Nish'
+                      },
+                      timestamp: new Date()
+                    },
+                    {
+                      id: '2',
+                      body: `
+                  Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
+
+                  LG,
+                  Nish
+                `,
+                      author: {
+                        id: '54321',
+                        username: 'Nish'
+                      },
+                      timestamp: new Date()
+                    }
+                  ],
+                  entity: { id: '1234', label: 'Aufgaben' }
+                },
+                {
+                  id: '2',
+                  body: `
+              Hallo Serlo-Team,
+
+              die erste Aufgabe im Subtraktionsblock hat ein Eingabefeld, der die Message "Type Answer" anzeigt. Außerdem wird das Feedback auch auf Englisch angezeigt ( = "wrong.")
+              Wie kann man solche Stellen bearbeiten?
+
+              Liebe Grüße
+              Sebastian
+            `,
+                  author: {
+                    id: '12345',
+                    username: 'SebSoGa'
+                  },
+                  timestamp: new Date('October 13, 2014 11:13:00'),
+                  children: [
+                    {
+                      id: '2',
+                      body: `
+                  Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
+
+                  LG,
+                  Nish
+                `,
+                      author: {
+                        id: '54321',
+                        username: 'Nish'
+                      },
+                      timestamp: new Date(2018, 4, 21, 3, 23, 34)
+                    }
+                  ],
+                  entity: { id: '12345', label: 'Aufgaben2' }
+                }
+              ]}
+              onSendComment={(params: any) => console.log(params)}
+            />
+          </Box>
+
+          <Footer navEntries={footerNavEntries} slogan={serloSlogan} />
+        </Provider>
+      </EntityContext.Provider>
+    </UserContext.Provider>
   )
 })
 

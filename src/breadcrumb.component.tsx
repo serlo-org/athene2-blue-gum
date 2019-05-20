@@ -44,13 +44,14 @@ export function Breadcrumb(props) {
 const BreadcrumbList = styled.div`
   position: absolute;
   left: 2rem;
-  margin-top: -1rem;
+  margin-top: -1.5rem;
   font-size: 1rem;
   color: #ddd;
 `
 
 const StyledAnchor = styled(Anchor)`
-  color: ${getColor('lighterblue')};
+  color: ${getColor('brand')};
+  font-weight: normal;
 ` as typeof Anchor
 
 const StyledButton = styled(Button)`
