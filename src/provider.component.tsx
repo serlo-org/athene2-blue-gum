@@ -207,6 +207,7 @@ export const GlobalStyle = createGlobalStyle`
 
 html  {
     font-size: 16px;
+    background-color: #fff;
   }
   body {
     font-family: 'Karmilla';
