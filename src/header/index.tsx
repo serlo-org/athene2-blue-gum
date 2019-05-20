@@ -67,7 +67,7 @@ function useOverlayTarget<E extends HTMLElement>(): [
   return [overlayTarget, refCallback]
 }
 
-const TopNavWrap = styled.div`
+const TopNavWrap = styled.header`
   background-color: ${getColor('bluewhite')};
   padding: 0;
   align-items: start;

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { getColor, lightenColor } from '../provider.component'
-import { DropButton } from 'grommet'
+// import { DropButton } from 'grommet'
 import { Button } from '../button.component'
 
 export interface Props {
@@ -13,10 +13,10 @@ export interface Props {
 
 export function MobileMenuButton({
   open,
-  onClick,
-  dropContent,
-  dropTarget
-}: Props) {
+  onClick
+}: // dropContent,
+// dropTarget
+Props) {
   return (
     <React.Fragment>
       <MenuButton
@@ -30,18 +30,18 @@ export function MobileMenuButton({
         activeBackgroundColor={lightenColor('lighterblue', 0.1)}
         onClick={onClick}
       />
-      <HiddenDropButton
+      {/* <HiddenDropButton
         open={open}
         dropContent={dropContent}
         dropTarget={dropTarget}
-      />
+      /> */}
     </React.Fragment>
   )
 }
 
-const HiddenDropButton = styled(DropButton)`
-  display: none;
-`
+// const HiddenDropButton = styled(DropButton)`
+//   display: none;
+// `
 
 const MenuButton = styled(Button)`
   position: absolute;
