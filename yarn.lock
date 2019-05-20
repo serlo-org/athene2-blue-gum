@@ -7562,6 +7562,11 @@ react-hotkeys@2.0.0-pre4:
   dependencies:
     prop-types "^15.6.1"
 
+react-horizontal-scrolling-menu@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.5.8.tgz#600c943cb592f98a213a009bafb32a93fb40f403"
+  integrity sha512-Xr0QbX96SdcYGyWHYNvxLzBAvEuCdZK2PNZRI1wdhe4tBYcfAPZQ9HKLfoyXsmu65vZpFXhydTRga+FTK8mFYQ==
+
 react-inlinesvg@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/react-inlinesvg/-/react-inlinesvg-0.8.4.tgz#5cdcece95c633d924092fdcabbf4dcab8baef1bd"
