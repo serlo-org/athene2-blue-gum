@@ -18,6 +18,9 @@ import { Box, Anchor } from 'grommet'
 import { Heading } from '../src/heading.component'
 import { Breadcrumb } from '../src/breadcrumb.component'
 
+// @ts-ignore
+import LazyLoad from 'react-lazy-load'
+
 import {
   articleContent,
   topNavLinks,
@@ -181,11 +184,12 @@ storiesOf('Example Page', module).add('test', () => {
           <EditBox />
 
           <Box direction="row-responsive" justify="center">
-            <Comments
-              data={[
-                {
-                  id: '1',
-                  body: `
+            <LazyLoad offset={200} once placeholder={<div>Loading…</div>}>
+              <Comments
+                data={[
+                  {
+                    id: '1',
+                    body: `
               Hallo Serlo-Team,
 
               die erste Aufgabe im Subtraktionsblock hat ein Eingabefeld, der die Message "Type Answer" anzeigt. Außerdem wird das Feedback auch auf Englisch angezeigt ( = "wrong.")
@@ -194,46 +198,46 @@ storiesOf('Example Page', module).add('test', () => {
               Liebe Grüße
               Sebastian
             `,
-                  author: {
-                    id: '12345',
-                    username: 'SebSoGa'
-                  },
-                  timestamp: new Date(),
-                  children: [
-                    {
-                      id: '2',
-                      body: `
-                  Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
-
-                  LG,
-                  Nish
-                `,
-                      author: {
-                        id: '54321',
-                        username: 'Nish'
-                      },
-                      timestamp: new Date()
+                    author: {
+                      id: '12345',
+                      username: 'SebSoGa'
                     },
-                    {
-                      id: '2',
-                      body: `
+                    timestamp: new Date(),
+                    children: [
+                      {
+                        id: '2',
+                        body: `
                   Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
 
                   LG,
                   Nish
                 `,
-                      author: {
-                        id: '54321',
-                        username: 'Nish'
+                        author: {
+                          id: '54321',
+                          username: 'Nish'
+                        },
+                        timestamp: new Date()
                       },
-                      timestamp: new Date()
-                    }
-                  ],
-                  entity: { id: '1234', label: 'Aufgaben' }
-                },
-                {
-                  id: '2',
-                  body: `
+                      {
+                        id: '2',
+                        body: `
+                  Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
+
+                  LG,
+                  Nish
+                `,
+                        author: {
+                          id: '54321',
+                          username: 'Nish'
+                        },
+                        timestamp: new Date()
+                      }
+                    ],
+                    entity: { id: '1234', label: 'Aufgaben' }
+                  },
+                  {
+                    id: '2',
+                    body: `
               Hallo Serlo-Team,
 
               die erste Aufgabe im Subtraktionsblock hat ein Eingabefeld, der die Message "Type Answer" anzeigt. Außerdem wird das Feedback auch auf Englisch angezeigt ( = "wrong.")
@@ -242,32 +246,33 @@ storiesOf('Example Page', module).add('test', () => {
               Liebe Grüße
               Sebastian
             `,
-                  author: {
-                    id: '12345',
-                    username: 'SebSoGa'
-                  },
-                  timestamp: new Date('October 13, 2014 11:13:00'),
-                  children: [
-                    {
-                      id: '2',
-                      body: `
+                    author: {
+                      id: '12345',
+                      username: 'SebSoGa'
+                    },
+                    timestamp: new Date('October 13, 2014 11:13:00'),
+                    children: [
+                      {
+                        id: '2',
+                        body: `
                   Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
 
                   LG,
                   Nish
                 `,
-                      author: {
-                        id: '54321',
-                        username: 'Nish'
-                      },
-                      timestamp: new Date(2018, 4, 21, 3, 23, 34)
-                    }
-                  ],
-                  entity: { id: '12345', label: 'Aufgaben2' }
-                }
-              ]}
-              onSendComment={(params: any) => console.log(params)}
-            />
+                        author: {
+                          id: '54321',
+                          username: 'Nish'
+                        },
+                        timestamp: new Date(2018, 4, 21, 3, 23, 34)
+                      }
+                    ],
+                    entity: { id: '12345', label: 'Aufgaben2' }
+                  }
+                ]}
+                onSendComment={(params: any) => console.log(params)}
+              />
+            </LazyLoad>
           </Box>
 
           <Footer navEntries={footerNavEntries} slogan={serloSlogan} />
