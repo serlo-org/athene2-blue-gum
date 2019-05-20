@@ -63,7 +63,7 @@ const _Wrap = styled.form`
   @media (min-width: ${props => props.theme.sm}) {
     width: 7rem;
     position: absolute;
-    top: 8.3rem;
+    top: 7.95rem;
     right: 2rem;
     background-color: transparent;
     border-radius: 1.1rem;
