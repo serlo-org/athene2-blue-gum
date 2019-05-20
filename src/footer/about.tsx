@@ -115,7 +115,7 @@ const RowSummary = styled(Row)`
   padding-top: 2.5rem;
 
   @media (max-width: ${props => props.theme.md}) {
-    padding-left: 3rem;
+    padding-left: 0.5rem;
   }
 `
 
@@ -137,4 +137,5 @@ const RowSupport = styled(Row)`
 
 const AboutWrap = styled(Row)`
   margin-right: 0;
+  margin-left: 0;
 `
