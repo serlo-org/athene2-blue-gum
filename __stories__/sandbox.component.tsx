@@ -1,15 +1,15 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
+import styled from 'styled-components'
 
 import { Header } from '../src/header'
 import { SearchInput } from '../src/header/searchinput'
 import { Footer } from '../src/footer'
 import { Nav } from '../src/footer/nav'
 import { MobileMenuButton } from '../src/header/mobilemenubutton'
-import styled from 'styled-components'
+import { EditBox } from '../src/editbox.component'
 
 // import { Icon } from '../src/icon.component'
-
 import { Provider, GlobalStyle } from '../src/provider.component'
 import { Normalize } from 'styled-normalize'
 import { Box, Anchor } from 'grommet'
@@ -172,6 +172,7 @@ storiesOf('Example Page', module).add('test', () => {
           </p>
         </StyledContent>
       </Box>
+      <EditBox />
 
       <Footer navEntries={footerNavEntries} slogan={serloSlogan} />
     </Provider>

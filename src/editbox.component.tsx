@@ -18,7 +18,7 @@ export function EditBox(props) {
   return (
     <React.Fragment>
       <Summary show={summary}>
-        Bearbeitungen: <b>5</b>
+        {/* Bearbeitungen: <b>5</b> */}
         <p>
           <SummaryButton
             label="Inhalt bearbeiten"
@@ -27,7 +27,6 @@ export function EditBox(props) {
             backgroundColor="transparent"
             activeBackgroundColor={getColor('brandGreen')}
             size={0.8}
-            reverse
           />
           <SummaryDropButton
             dropContent={renderItems()}
@@ -36,7 +35,6 @@ export function EditBox(props) {
             backgroundColor="transparent"
             activeBackgroundColor={getColor('brandGreen')}
             size={0.8}
-            reverse
             label="Weitere Funktionen"
             dropAlign={{ bottom: 'top', right: 'right' }}
             {...!summary && { open: false }}
@@ -48,7 +46,6 @@ export function EditBox(props) {
         a11yTitle={props.title}
         plain
         iconName="faPencilAlt"
-        reverse
         hiddenLabel={'Artikel bearbeiten'}
         show={!summary}
         activeBackgroundColor={getColor('brandGreen')}
@@ -66,7 +63,6 @@ const renderItems = () => (
       activeBackgroundColor={getColor('brandGreen')}
       fontColor={getColor('darkGray')}
       size={0.8}
-      reverse
     />
     <DropContentButton
       iconName="faHistory"
@@ -75,7 +71,6 @@ const renderItems = () => (
       activeBackgroundColor={getColor('brandGreen')}
       fontColor={getColor('darkGray')}
       size={0.8}
-      reverse
     />
     <DropContentButton
       iconName="faPencilAlt"
@@ -84,16 +79,14 @@ const renderItems = () => (
       activeBackgroundColor={getColor('brandGreen')}
       fontColor={getColor('darkGray')}
       size={0.8}
-      reverse
     />
     <DropContentButton
-      iconName="faMapMarker"
+      iconName="faMapMarkerAlt"
       label="Zuweisung zu Themen und Lehrplänen bearbeiten"
       backgroundColor="transparent"
       activeBackgroundColor={getColor('brandGreen')}
       fontColor={getColor('darkGray')}
       size={0.8}
-      reverse
     />
     <DropContentButton
       iconName="faLink"
@@ -102,7 +95,6 @@ const renderItems = () => (
       activeBackgroundColor={getColor('brandGreen')}
       fontColor={getColor('darkGray')}
       size={0.8}
-      reverse
     />
     <DropContentButton
       iconName="faFlag"
@@ -111,16 +103,14 @@ const renderItems = () => (
       activeBackgroundColor={getColor('brandGreen')}
       fontColor={getColor('darkGray')}
       size={0.8}
-      reverse
     />
     <DropContentButton
-      iconName="faHeartbeat"
+      iconName="faSpinner"
       label="Verlauf"
       backgroundColor="transparent"
       activeBackgroundColor={getColor('brandGreen')}
       fontColor={getColor('darkGray')}
       size={0.8}
-      reverse
     />
   </DropContent>
 )
@@ -155,7 +145,7 @@ const Summary = styled.div`
     color: ${getColor('brandGreen')};
     font-weight: bold;
 
-    border-left: 0.15rem solid ${lightenColor('brandGreen', 0.3)};
+    /* border-left: 0.15rem solid ${lightenColor('lightblue', 0.3)}; */
     padding: 0.2rem 0 0.2rem 0.5rem;
 
     > p {
