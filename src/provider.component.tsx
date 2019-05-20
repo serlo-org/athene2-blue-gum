@@ -119,11 +119,12 @@ const theme = {
       const lightBlue = transparentize(0.35, props.theme.global.colors.brand)
       return `
         padding: 0 .15em;
-        &:hover {
+        &:hover, &:focus {
           color: #fff;
           background-color: ${lightBlue};
           border-radius: .25em;
-          box-shadow: 0 0 0 .03em ${lightBlue};
+          // box-shadow: 0 0 0 .03em ${lightBlue};
+          box-shadow: none;
         }
       `
     }
@@ -160,7 +161,7 @@ const theme = {
         }
         ${props.colorValue || props.primary ? 'color: #fff' : ''}
 
-        &:hover {
+        &:hover, &:focus {
           box-shadow: none;
           background-color: ${transparentize(0.5, backgroundColor)};
           ${props.secondary ? 'color: #fff' : ''}
