@@ -110,7 +110,10 @@ const CourseList = props => {
   return (
     <StyledCourseList>
       {props.pages.map((title, index) => (
-        <li class={index === props.currentPage - 1 ? 'active' : ''}>
+        <li
+          key={index}
+          className={index === props.currentPage - 1 ? 'active' : ''}
+        >
           <a href="javascript:location.reload()">{title}</a>
         </li>
       ))}
