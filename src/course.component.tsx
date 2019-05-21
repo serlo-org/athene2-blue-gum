@@ -8,7 +8,8 @@ import {
   faBars,
   faArrowCircleRight
 } from '@fortawesome/free-solid-svg-icons'
-import { Box, Button, Grid } from 'grommet'
+import { Box, Grid } from 'grommet'
+import { Button } from './button.component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function Course(props) {
@@ -23,11 +24,11 @@ export function Course(props) {
             <OverviewTitle {...props} />
             {!isExpanded ? (
               <Button
-                secondary
+                backgroundColor={getColor('lightblue')}
                 alignSelf="start"
                 label="Kursübersicht anzeigen"
                 margin={{ top: 'medium', bottom: 'medium' }}
-                icon={<FontAwesomeIcon icon={faBars} />}
+                iconName={'faBars'}
                 onClick={() => {
                   setExpanded(true)
                 }}
@@ -84,14 +85,12 @@ const OverviewTitle = props => {
 
 const NextButton = () => {
   return (
-    <div style={{ marginTop: '2rem' }}>
+    <div style={{ marginTop: '2rem', float: 'right' }}>
       <Button
-        primary
+        backgroundColor={getColor('brand')}
         reverse
-        icon={<FontAwesomeIcon icon={faArrowCircleRight} />}
+        iconName={'faArrowCircleRight'}
         label="Weiter"
-        alignSelf="end"
-        style={{ float: 'right' }}
       />
     </div>
   )
