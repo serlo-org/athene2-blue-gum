@@ -215,6 +215,7 @@ storiesOf('Misc Components', module)
             'Trägerverein',
             'Spenden'
           ]}
+          selectedIndex={4}
         />
       </Box>
     </Provider>
