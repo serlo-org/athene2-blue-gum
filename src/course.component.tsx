@@ -57,9 +57,11 @@ export function Course(props) {
           </CollapsedCourseOverview>
         </Box>
         <Box margin="small">
-          <PageTitle {...props} />
-          {props.children}
-          <NextButton />
+          <div>
+            <PageTitle {...props} />
+            {props.children}
+            <NextButton />
+          </div>
         </Box>
       </Grid>
     )
