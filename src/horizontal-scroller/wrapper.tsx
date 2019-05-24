@@ -171,8 +171,7 @@ export class InnerWrapper extends React.PureComponent<InnerWrapperProps, {}> {
               display: 'inline-block',
             }}
             onClick={Item.props.onClick()}
-            tabIndex={1}
-            role="button"
+            tabIndex={-1}
           >
             {Item}
           </div>

@@ -26,6 +26,7 @@ interface MenuState {
   rightArrowVisible: boolean;
 }
 
+
 export class ScrollMenu extends React.Component<MenuProps, MenuState> {
   static defaultProps: MenuProps = defaultProps;
 
@@ -50,6 +51,8 @@ export class ScrollMenu extends React.Component<MenuProps, MenuState> {
   private resizeTimer: any;
 
   private data: JSX.Element[] | null;
+  
+  private dragHistory;
 
   constructor(props: MenuProps) {
     super(props);
@@ -873,6 +876,7 @@ export class ScrollMenu extends React.Component<MenuProps, MenuState> {
     const { dragging: draggingEnable } = this.props;
     if (!draggingEnable) return false;
     const { translate: startDragTranslate } = this.state;
+    this.dragHistory = [{time: Date.now(), pos: startDragTranslate}]
     this.setState({
       dragging: true,
       xPoint: 0,
@@ -900,6 +904,8 @@ export class ScrollMenu extends React.Component<MenuProps, MenuState> {
     }
 
     const newTranslate = result;
+    
+    this.dragHistory.push({time: Date.now(), pos: newTranslate})
 
     this.setState({
       xPoint: point,
@@ -921,11 +927,23 @@ export class ScrollMenu extends React.Component<MenuProps, MenuState> {
     if (!draggingEnable || !dragging) return false;
 
     let newTranslate = translate;
+    
+    let currentTime = Date.now()
+    let recentEntries = this.dragHistory.filter(entry => currentTime - entry.time < 100)
+    if (recentEntries.length > 2) {
+      console.log("Beachte " + recentEntries.length)
+      let first = recentEntries[0]
+      let last = recentEntries[recentEntries.length - 1]
+      let speed = (last.pos - first.pos) / (last.time - first.time)
+      speed *= 0.25
+      console.log(speed)
+      newTranslate += speed * (this.props.transition * 1000)
+    }
 
-    if (this.itBeforeStart(translate)) {
+    if (this.itBeforeStart(newTranslate)) {
       newTranslate = this.getOffsetAtStart();
       xPoint = defaultProps.xPoint;
-    } else if (this.itAfterEnd(translate)) {
+    } else if (this.itAfterEnd(newTranslate)) {
       newTranslate = this.getOffsetAtEnd();
       xPoint = defaultProps.xPoint;
     }
@@ -934,8 +952,6 @@ export class ScrollMenu extends React.Component<MenuProps, MenuState> {
       newTranslate = defaultProps.translate;
       xPoint = defaultProps.xPoint;
     }
-
-    newTranslate = newTranslate;
 
     this.setState(
       {
