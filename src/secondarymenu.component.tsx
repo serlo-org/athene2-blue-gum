@@ -24,8 +24,8 @@ export const SecondaryMenu = props => {
         onSelect={x => {
           alert(x)
         }}
-        arrowRight={<RightArrow />}
-        arrowLeft={<LeftArrow />}
+        arrowRight={<StyledArrowRight />}
+        arrowLeft={<StyledArrowLeft />}
         hideSingleArrow={true}
         transition={0.8}
       />
@@ -61,28 +61,25 @@ const StyledScrollMenu = styled.div`
     opacity: 0.1;
   }
 `
-const RightArrow = () => {
-  return (
-    <StyledArrow>
-      <span>{'►'}</span>
-    </StyledArrow>
-  )
-}
 
-const LeftArrow = () => {
-  return (
-    <StyledArrow>
-      <span>{'◀'}</span>
-    </StyledArrow>
-  )
-}
+const StyledArrowLeft = styled.div`
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid ${getColor('lightblue')};
+  margin-right: 0.2rem;
+  margin-left: 0.05rem;
+  transform: scale(0.7, 2);
+`
 
-const StyledArrow = styled.div`
-  color: ${getColor('lightblue')};
-  span {
-    display: inline-block;
-    transform: scale(0.5, 3);
-    cursor: pointer;
-    user-select: none;
-  }
+const StyledArrowRight = styled.div`
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid ${getColor('lightblue')};
+  margin-left: 0.2rem;
+  margin-right: 0.05rem;
+  transform: scale(0.7, 2);
 `
