@@ -45,7 +45,7 @@ const StyledScrollMenu = styled.div`
     color: black;
   }
 
-  .menu-wrapper--inner > div:not(:last-child) {
+  ul > li:not(:last-child) {
     border-right: 1px solid ${getColor('lighterblue')};
   }
 
