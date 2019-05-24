@@ -55,7 +55,9 @@ export const innerStyle = ({
   return {
     width: '9900px',
     transform: `translate3d(${translate}px, 0px, 0px)`,
-    transition: `transform ${dragging || !mounted ? '0' : transition}s`,
+    transition: `transform ${
+      dragging || !mounted ? '0' : transition
+    }s ease-out`,
     whiteSpace: 'nowrap',
     textAlign: 'left',
     userSelect: 'none'
