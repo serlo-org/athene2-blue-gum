@@ -4,7 +4,11 @@ import styled from 'styled-components'
 import { Heading } from './heading.component'
 import { getColor } from './provider.component'
 
-export const SecondaryMenu = props => {
+interface SecondaryMenuProps {}
+
+export const SecondaryMenu: React.FunctionComponent<
+  SecondaryMenuProps
+> = props => {
   return (
     <StyledScrollMenu>
       <ScrollMenu

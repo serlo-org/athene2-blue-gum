@@ -10,7 +10,9 @@ import {
 } from './provider.component'
 import { useScrollYPosition } from 'react-use-scroll-position'
 
-export function EditBox(props) {
+export const EditBox: React.FunctionComponent<
+  React.HTMLAttributes<HTMLDivElement>
+> = props => {
   const scrollY = useScrollYPosition()
   const summary = scrollY > 30 ? false : true
 
@@ -130,7 +132,11 @@ const SummaryDropButton = styled(DropButton)`
   }
 `
 
-const Summary = styled.div`
+interface SummaryProps {
+  show: boolean
+}
+
+const Summary = styled.div<SummaryProps>`
   display: none;
 
   @media screen and (min-width: ${getBreakpoint('md')}) {
@@ -156,7 +162,13 @@ const Summary = styled.div`
     pointer-events: ${props => (props.show ? 'all' : 'none')};
   }
 `
-const StyledButton = styled(Button)`
+
+interface StyledButtonProps {
+  show: boolean
+  hiddenLabel: string
+}
+
+const StyledButton = styled(Button)<StyledButtonProps>`
   display: none;
   @media screen and (min-width: ${getBreakpoint('md')}){
     display: block;

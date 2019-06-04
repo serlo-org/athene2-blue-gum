@@ -6,7 +6,8 @@
   "scripts": {
     "build": "build-storybook -c .storybook -o dist",
     "format": "prettier --write \"{{.storybook,__stories__,src/**/*,*},*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
-    "start": "start-storybook -p 9000 -c .storybook"
+    "start": "start-storybook -p 9000 -c .storybook",
+    "lint": "yarn tsc --noemit"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",

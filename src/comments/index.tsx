@@ -4,10 +4,9 @@ import { Box } from 'grommet'
 import { Heading } from '../heading.component'
 import { faComments, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 
-import CommentForm from './commentform'
+import CommentForm, { SendProps } from './commentform'
 import { Comment } from './comment'
 
-// @ts-ignore
 import LazyLoad from 'react-lazy-load'
 
 export function Comments({ data, onSendComment }: CommentsProps) {
@@ -15,7 +14,7 @@ export function Comments({ data, onSendComment }: CommentsProps) {
   return (
     <React.Fragment>
       <CommentBox pad="large" width="large" alignSelf="center">
-        <Heading level="2" icon={faQuestionCircle}>
+        <Heading level={2} icon={faQuestionCircle}>
           Hast du eine Frage?
         </Heading>
         <CommentForm
@@ -24,7 +23,7 @@ export function Comments({ data, onSendComment }: CommentsProps) {
           onSendComment={onSendComment}
         />
 
-        <Heading level="2" icon={faComments}>
+        <Heading level={2} icon={faComments}>
           99 Kommentare
         </Heading>
         {/* todo: calculate amount of comments (and children) or get from server */}

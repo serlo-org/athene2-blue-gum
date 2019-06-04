@@ -7,7 +7,8 @@ import { Button, DropButton } from '../button.component'
 export interface MenuEntry {
   title: string
   icon?: string
-  url: string
+  class?: string
+  url?: string
   children?: MenuEntry[]
   highlight?: boolean
 }
@@ -27,7 +28,7 @@ export default function Menu({ links, className }: Props) {
         return (
           <Entry
             key={'_' + index}
-            href={entry.url}
+            url={entry.url}
             icon={icon}
             title={entry.title}
             children={entry.children}
@@ -127,7 +128,11 @@ const SubmenuList = styled.ul`
   text-align: right;
 `
 
-const Li = styled.li`
+interface LiProps {
+  isChild?: boolean
+}
+
+const Li = styled.li<LiProps>`
   display: inline-block;
   ${props =>
     props.isChild
@@ -142,7 +147,13 @@ const Li = styled.li`
       : null}
 `
 
-const Link = styled(Button)`
+interface LinkProps {
+  open: boolean
+  onOpen?: () => void
+  onClose?: () => void
+}
+
+const Link = styled(Button)<LinkProps>`
   margin-right: 0.6rem;
   font-weight: bold;
   text-align: right;
