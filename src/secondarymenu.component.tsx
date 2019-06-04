@@ -4,38 +4,45 @@ import styled from 'styled-components'
 import { Heading } from './heading.component'
 import { getColor } from './provider.component'
 
-interface SecondaryMenuProps {}
+interface SecondaryMenuProps {
+  entries: string[]
+  selectedIndex: number
+}
 
 export const SecondaryMenu: React.FunctionComponent<
   SecondaryMenuProps
 > = props => {
   return (
     <StyledScrollMenu>
-      <ScrollMenu
-        alignCenter={false}
-        data={props.entries.map((name, i) => {
-          return (
-            <div
-              key={name}
-              className={i === props.selectedIndex ? 'active' : ''}
-            >
-              <Heading level={3}>{name}</Heading>
-            </div>
-          )
-        })}
-        selected={props.entries[props.selectedIndex]}
-        scrollToSelected={true}
-        onSelect={x => {
-          alert(x)
-        }}
-        arrowRight={<StyledArrowRight />}
-        arrowLeft={<StyledArrowLeft />}
-        hideSingleArrow={true}
-        transition={0.8}
-        inertiaScrolling={true}
-        inertiaScrollingSlowdown={0.25}
-        useButtonRole={false}
-      />
+      {
+        // PR pending for react-horizontal-scrolling-menu
+        // @ts-ignore
+        <ScrollMenu
+          alignCenter={false}
+          data={props.entries.map((name, i) => {
+            return (
+              <div
+                key={name}
+                className={i === props.selectedIndex ? 'active' : ''}
+              >
+                <Heading level={3}>{name}</Heading>
+              </div>
+            )
+          })}
+          selected={props.entries[props.selectedIndex]}
+          scrollToSelected={true}
+          onSelect={(x: string) => {
+            alert(x)
+          }}
+          arrowRight={<StyledArrowRight />}
+          arrowLeft={<StyledArrowLeft />}
+          hideSingleArrow={true}
+          transition={0.8}
+          inertiaScrolling={true}
+          inertiaScrollingSlowdown={0.25}
+          useButtonRole={false}
+        />
+      }
     </StyledScrollMenu>
   )
 }
