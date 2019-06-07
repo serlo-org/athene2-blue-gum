@@ -194,7 +194,7 @@ storiesOf('*(Content Components for Editor)', module)
       <Normalize />
       <GlobalStyle />
       <StyledContent pad="medium" style={{ maxWidth: '40rem' }}>
-        <Heading level={1} icon="newspaper">
+        <Heading level={1} icon="faNewspaper">
           Berechnungen am Kreis
         </Heading>
         <p>

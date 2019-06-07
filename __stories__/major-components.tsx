@@ -52,12 +52,12 @@ storiesOf('Header', module)
             height: '15rem'
           }}
         >
-          <p style={{ position: 'relative' }}>
+          <div style={{ position: 'relative' }}>
             <MobileMenuButton open={false} />
-          </p>
-          <p style={{ position: 'relative', top: '2rem' }}>
+          </div>
+          <div style={{ position: 'relative', top: '2rem' }}>
             <MobileMenuButton open={true} />
-          </p>
+          </div>
         </div>
       </Provider>
     )
@@ -114,7 +114,7 @@ storiesOf('Example Page', module).add('test', () => {
             >
               <Breadcrumb />
 
-              <Heading level={1} icon="newspaper">
+              <Heading level={1} icon="faNewspaper">
                 Example Content
               </Heading>
               <p>
@@ -212,7 +212,7 @@ storiesOf('Example Page', module).add('test', () => {
                       timestamp: new Date()
                     },
                     {
-                      id: '2',
+                      id: '3',
                       body: `
                   Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
 
@@ -229,7 +229,7 @@ storiesOf('Example Page', module).add('test', () => {
                   entity: { id: '1234', label: 'Aufgaben' }
                 },
                 {
-                  id: '2',
+                  id: '4',
                   body: `
               Hallo Serlo-Team,
 
@@ -246,7 +246,7 @@ storiesOf('Example Page', module).add('test', () => {
                   timestamp: new Date('October 13, 2014 11:13:00'),
                   children: [
                     {
-                      id: '2',
+                      id: '5',
                       body: `
                   Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
 
@@ -317,7 +317,7 @@ storiesOf('Comments', module).add('default', () => {
                     timestamp: new Date()
                   },
                   {
-                    id: '2',
+                    id: '3',
                     body: `
                   Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
 
@@ -334,7 +334,7 @@ storiesOf('Comments', module).add('default', () => {
                 entity: { id: '1234', label: 'Aufgaben' }
               },
               {
-                id: '2',
+                id: '4',
                 body: `
               Hallo Serlo-Team,
 
@@ -351,7 +351,7 @@ storiesOf('Comments', module).add('default', () => {
                 timestamp: new Date('October 13, 2014 11:13:00'),
                 children: [
                   {
-                    id: '2',
+                    id: '5',
                     body: `
                   Du kannst nicht diese Stelle allein bearbeiten. Das muss allgemein bei diesen Typen von Aufgaben geändert werden. Ich weiß gerade nur nicht wo und ob es jeder kann. Evtl. wurde es schon geändert... Kannst du mal bei Benni/Simon diesbezüglich nachfragen?
 

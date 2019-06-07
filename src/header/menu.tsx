@@ -54,7 +54,7 @@ function Entry({
   highlight,
   isChild
 }: EntryProps) {
-  const [open, setOpen] = React.useState(false)
+  const [open] = React.useState(false)
 
   return (
     <Li key={key} isChild={isChild}>
@@ -83,8 +83,6 @@ function Entry({
         a11yTitle={children ? 'Untermenü ' + title + ' öffnen' : title}
         dropContent={children ? <Submenu entries={children} /> : undefined}
         dropAlign={children ? { top: 'bottom', right: 'right' } : undefined}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
         open={open}
       />
     </Li>
@@ -149,8 +147,6 @@ const Li = styled.li<LiProps>`
 
 interface LinkProps {
   open: boolean
-  onOpen?: () => void
-  onClose?: () => void
 }
 
 const Link = styled(Button)<LinkProps>`

@@ -26,7 +26,14 @@ export type AllowedIcons = keyof (typeof icons)
 //   icon: AllowedIcons
 // }
 
-const getIcon = (name: string) => icons[name]
+const getIcon = (name: string) => {
+  let icon = icons[name]
+  if (!icon) {
+    console.log("Can't find icon: " + name)
+    return faTruck
+  }
+  return icon
+}
 
 interface IconProps {
   icon: AllowedIcons

@@ -230,7 +230,7 @@ class Components extends React.Component {
               { value: 10, color: 'light-3' },
               { value: 5, color: 'light-4' }
             ]
-            const entry = lookupTable.find(value.value)
+            const entry = lookupTable.find(x => x == value.value)
             return (
               <Box pad="xsmall" background={entry ? entry.color : ''} fill>
                 <Text size="large">{value.value}</Text>
