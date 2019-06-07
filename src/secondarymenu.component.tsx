@@ -14,35 +14,31 @@ export const SecondaryMenu: React.FunctionComponent<
 > = props => {
   return (
     <StyledScrollMenu>
-      {
-        // PR pending for react-horizontal-scrolling-menu
-        // @ts-ignore
-        <ScrollMenu
-          alignCenter={false}
-          data={props.entries.map((name, i) => {
-            return (
-              <div
-                key={name}
-                className={i === props.selectedIndex ? 'active' : ''}
-              >
-                <Heading level={3}>{name}</Heading>
-              </div>
-            )
-          })}
-          selected={props.entries[props.selectedIndex]}
-          scrollToSelected={true}
-          onSelect={(x: string) => {
-            alert(x)
-          }}
-          arrowRight={<StyledArrowRight />}
-          arrowLeft={<StyledArrowLeft />}
-          hideSingleArrow={true}
-          transition={0.8}
-          inertiaScrolling={true}
-          inertiaScrollingSlowdown={0.25}
-          useButtonRole={false}
-        />
-      }
+      <ScrollMenu
+        alignCenter={false}
+        data={props.entries.map((name, i) => {
+          return (
+            <div
+              key={name}
+              className={i === props.selectedIndex ? 'active' : ''}
+            >
+              <Heading level={3}>{name}</Heading>
+            </div>
+          )
+        })}
+        selected={props.entries[props.selectedIndex]}
+        scrollToSelected={true}
+        onSelect={(x: string | number | null) => {
+          alert(x)
+        }}
+        arrowRight={<StyledArrowRight />}
+        arrowLeft={<StyledArrowLeft />}
+        hideSingleArrow={true}
+        transition={0.8}
+        inertiaScrolling={true}
+        inertiaScrollingSlowdown={0.25}
+        useButtonRole={false}
+      />
     </StyledScrollMenu>
   )
 }

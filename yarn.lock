@@ -7560,10 +7560,10 @@ react-helmet-async@^0.2.0:
     react-fast-compare "^2.0.2"
     shallowequal "^1.0.2"
 
-react-horizontal-scrolling-menu@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.6.1.tgz#265624ce2d7c92e10086c448ce55163f9370490f"
-  integrity sha512-lUf96jdZ8Lfr7I9JUYyFO/raUgiR1s02lHnL5U3r0Et1OT/0Qd8lE+DUUNgX8BgmESuYv8Bxj7C9qa1B/Qq/Zg==
+react-horizontal-scrolling-menu@^0.6.12:
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.6.12.tgz#2669e86d99f178703a7d8421208c78b4b2977986"
+  integrity sha512-YGGJ7k+tMaBYRkrSZnEzvpFvAEj1uYFqICbFevvjHD8s56HwCwf5EbaBi+T622RE5gutXedZ108CDQQ67LhkcA==
 
 react-hotkeys@2.0.0-pre4:
   version "2.0.0-pre4"
@@ -9091,10 +9091,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.0.0:
-  version "3.3.3333"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
-  integrity sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
+typescript@^3.5.0:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.1.tgz#ba72a6a600b2158139c5dd8850f700e231464202"
+  integrity sha512-64HkdiRv1yYZsSe4xC1WVgamNigVYjlssIoaH2HcZF0+ijsk5YK2g0G34w9wJkze8+5ow4STd22AynfO6ZYYLw==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"
