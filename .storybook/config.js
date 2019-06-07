@@ -1,9 +1,9 @@
-import { setOptions } from '@storybook/addon-options'
+import { withOptions } from '@storybook/addon-options'
 import { configure } from '@storybook/react'
 import { addParameters } from '@storybook/react'
 import { themes } from '@storybook/theming'
 
-setOptions({
+withOptions({
   theme: {
     brandTitle: 'Blue Gum',
   },

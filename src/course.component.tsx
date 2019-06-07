@@ -2,7 +2,6 @@ import * as React from 'react'
 import { getColor, lightenColor } from './provider.component'
 import { Heading } from './heading.component'
 import styled from 'styled-components'
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { Box } from 'grommet'
 import { Button } from './button.component'
 import Breakpoint from 'react-socks'
@@ -99,7 +98,7 @@ interface OverviewTitleProps {
 
 const OverviewTitle = (props: OverviewTitleProps) => {
   return (
-    <Heading level={3} icon={faGraduationCap}>
+    <Heading level={3} icon={'faGraduationCap'}>
       {props.courseTitle}
     </Heading>
   )

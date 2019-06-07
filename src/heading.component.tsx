@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import { Heading as GrommetHeading } from 'grommet'
 
 import { getColor } from './provider.component'
-import { Icon } from './icon.component'
+import { Icon, AllowedIcons } from './icon.component'
 
 export interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6
-  icon?: string
+  icon?: AllowedIcons
   color?: string
 }
 

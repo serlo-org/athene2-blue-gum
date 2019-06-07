@@ -11,7 +11,7 @@ import Collapsible from 'react-collapsible'
 import { MobileMenuButton as Button } from './mobilemenubutton'
 
 type Child = { title: string; url: string; icon?: string }
-type Entry = {
+export type Entry = {
   title: string
   class?: string
   icon?: string

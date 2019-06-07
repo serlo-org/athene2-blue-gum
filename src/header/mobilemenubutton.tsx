@@ -6,7 +6,7 @@ import { Button } from '../button.component'
 
 export interface Props {
   open: boolean
-  onClick: () => void
+  onClick?: () => void
   dropContent?: JSX.Element
   dropTarget?: object
 }

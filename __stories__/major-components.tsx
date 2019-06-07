@@ -18,19 +18,9 @@ import { Normalize } from 'styled-normalize'
 import { Box, Anchor } from 'grommet'
 import { Heading } from '../src/heading.component'
 import { Breadcrumb } from '../src/breadcrumb.component'
-import {
-  MacroLayout,
-  MainContent,
-  LeftCol,
-  RightCol
-} from '../src/macrolayout.component'
+import { MacroLayout } from '../src/macrolayout.component'
 
-import {
-  articleContent,
-  topNavLinks,
-  footerNavEntries,
-  serloSlogan
-} from './dummycontent'
+import { topNavLinks, footerNavEntries, serloSlogan } from './dummycontent'
 
 storiesOf('Header', module)
   .add('SearchInput', () => {
@@ -122,7 +112,7 @@ storiesOf('Example Page', module).add('test', () => {
               width="large"
               style={{ opacity: 1 }}
             >
-              <Breadcrumb aprop />
+              <Breadcrumb />
 
               <Heading level={1} icon="newspaper">
                 Example Content

@@ -15,8 +15,6 @@ import { FeaturedContentBox } from '../src/taxonomy/featuredcontentbox'
 import Logo from '../src/logo.component'
 import Subjects from '../src/landing/subjects'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { EditBox } from '../src/editbox.component'
 
 import { SecondaryMenu } from '../src/secondarymenu.component'
@@ -44,7 +42,7 @@ storiesOf('Misc Components', module)
       <GlobalStyle />
       <Box direction="row-responsive" justify="center">
         <StyledContent alignSelf="center" width="large" style={{ opacity: 1 }}>
-          <Heading level={1} icon={faNewspaper}>
+          <Heading level={1} icon={'faNewspaper'}>
             Example Content
           </Heading>
           <p>
