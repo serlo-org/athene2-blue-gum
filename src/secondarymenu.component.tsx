@@ -34,7 +34,7 @@ export const SecondaryMenu: React.FunctionComponent<
         arrowRight={<StyledArrowRight />}
         arrowLeft={<StyledArrowLeft />}
         hideSingleArrow={true}
-        transition={0.8}
+        transition={0.6}
         inertiaScrolling={true}
         inertiaScrollingSlowdown={0.25}
         useButtonRole={false}

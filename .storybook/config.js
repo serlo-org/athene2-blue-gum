@@ -4,8 +4,10 @@ import { addParameters } from '@storybook/react'
 import { themes } from '@storybook/theming'
 
 setOptions({
-  name: 'Blue Gum',
-  showAddonPanel: false,
+  theme: {
+    brandTitle: 'Blue Gum',
+  },
+  showPanel: false,
   hierarchyRootSeparator: /\|/
 })
 

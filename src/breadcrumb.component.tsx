@@ -6,8 +6,8 @@ import Breakpoint from 'react-socks'
 import { Anchor } from 'grommet'
 
 interface BreadcrumbProps {
-  className: string
-  title: string
+  className?: string
+  title?: string
 }
 
 export function Breadcrumb({ className, title }: BreadcrumbProps) {

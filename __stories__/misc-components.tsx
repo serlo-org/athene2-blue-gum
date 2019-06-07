@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Comments } from '../src/comments.component'
 import { Provider, GlobalStyle } from '../src/provider.component'
 import { Normalize } from 'styled-normalize'
 
@@ -45,7 +44,7 @@ storiesOf('Misc Components', module)
       <GlobalStyle />
       <Box direction="row-responsive" justify="center">
         <StyledContent alignSelf="center" width="large" style={{ opacity: 1 }}>
-          <Heading level={1} icon="newspaper">
+          <Heading level={1} icon={faNewspaper}>
             Example Content
           </Heading>
           <p>
@@ -120,9 +119,9 @@ storiesOf('Misc Components', module)
           width="large"
           style={{ opacity: 1 }}
         >
-          <Breadcrumb aprop />
+          <Breadcrumb />
 
-          <Heading level={1} icon="newspaper">
+          <Heading level={1} icon="faNewspaper">
             Example Content
           </Heading>
           <p>

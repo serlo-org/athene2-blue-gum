@@ -20,5 +20,5 @@
     "strictNullChecks": true,
     "target": "es6"
   },
-  "include": ["src"]
+  "include": ["src", "__stories__"]
 }

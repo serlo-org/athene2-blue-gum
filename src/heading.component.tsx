@@ -2,14 +2,13 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { Heading as GrommetHeading } from 'grommet'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 import { getColor } from './provider.component'
+import { Icon } from './icon.component'
 
 export interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6
-  icon?: IconDefinition
+  icon?: string
   color?: string
 }
 
@@ -23,7 +22,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = props => {
       color={props.color}
       fontSize={fontSize}
     >
-      {props.icon ? <Icon icon={props.icon} color="default" /> : null}
+      {props.icon ? <StyledIcon icon={props.icon} /> : null}
 
       {props.children}
     </StyledHeading>
@@ -43,7 +42,7 @@ const StyledHeading = styled(GrommetHeading)`
   margin: 1.5em 0 0.6em;
 `
 
-const Icon = styled(FontAwesomeIcon)`
+const StyledIcon = styled(Icon)`
   width: 0.75em;
   height: 0.75em;
   margin-right: 0.1em;

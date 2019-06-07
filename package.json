@@ -17,6 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.0.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@storybook/addon-actions": "^5.0.11",
+    "babel-loader": "^8.0.6",
     "emotion": "^9.0.0",
     "grommet": "^2.0.0",
     "moment": "^2.23.0",

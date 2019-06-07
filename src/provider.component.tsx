@@ -223,7 +223,7 @@ let breakpoints: (keyof (typeof theme)['flexboxgrid']['breakpoints'])[] = [
 setDefaultBreakpoints(
   breakpoints.map(str => {
     return {
-      str: theme.flexboxgrid.breakpoints[str] * 16
+      [str]: theme.flexboxgrid.breakpoints[str] * 16
     }
   })
 )
