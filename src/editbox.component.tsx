@@ -20,7 +20,7 @@ export const EditBox: React.FunctionComponent<
     <React.Fragment>
       <Summary show={summary}>
         {/* Bearbeitungen: <b>5</b> */}
-        <p>
+        <div>
           <SummaryButton
             label="Inhalt bearbeiten"
             iconName="faPencilAlt"
@@ -38,9 +38,9 @@ export const EditBox: React.FunctionComponent<
             size={0.8}
             label="Weitere Funktionen"
             dropAlign={{ bottom: 'top', right: 'right' }}
-            {...!summary && { open: false }}
+            {...(!summary && { open: false })}
           />
-        </p>
+        </div>
       </Summary>
       <StyledButton
         className={props.className}
@@ -153,7 +153,7 @@ const Summary = styled.div<SummaryProps>`
     /* border-left: 0.15rem solid ${lightenColor('lightblue', 0.3)}; */
     padding: 0.2rem 0 0.2rem 0.5rem;
 
-    > p {
+    > div {
       margin-bottom: 0;
     }
 

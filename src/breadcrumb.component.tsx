@@ -43,7 +43,7 @@ export function Breadcrumb({ className, title }: BreadcrumbProps) {
 const BreadcrumbList = styled.div`
   position: absolute;
   left: 2rem;
-  margin-top: -1.5rem;
+  margin-top: -0.5rem;
   font-size: 1rem;
   color: #ddd;
 `

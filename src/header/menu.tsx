@@ -27,6 +27,7 @@ export default function Menu({ links, className }: Props) {
         if (!entry.title) return null //seperator
         return (
           <Entry
+            childKey={'_' + index}
             key={'_' + index}
             url={entry.url}
             icon={icon}
@@ -41,14 +42,14 @@ export default function Menu({ links, className }: Props) {
 }
 
 interface EntryProps extends MenuEntry {
-  key: string
+  childKey: string
   isChild?: boolean
 }
 
 function Entry({
   url,
   title,
-  key,
+  childKey,
   icon,
   children,
   highlight,
@@ -57,7 +58,7 @@ function Entry({
   const [open] = React.useState(false)
 
   return (
-    <Li key={key} isChild={isChild}>
+    <Li key={childKey} isChild={isChild}>
       <Link
         label={
           !children ? (
@@ -96,6 +97,7 @@ function Submenu({ entries }: { entries: MenuEntry[] }) {
         if (!entry.title) return null //seperator
         return (
           <Entry
+            childKey={'__' + index}
             key={'__' + index}
             url={entry.url}
             icon={entry.icon}

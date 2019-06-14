@@ -18,6 +18,7 @@ import Subjects from '../src/landing/subjects'
 import { EditBox } from '../src/editbox.component'
 
 import { SecondaryMenu } from '../src/secondarymenu.component'
+import { MacroLayout } from '../src/macrolayout.component'
 
 storiesOf('Misc Components', module)
   .add('Brand', () => (
@@ -40,69 +41,72 @@ storiesOf('Misc Components', module)
     <Provider>
       <Normalize />
       <GlobalStyle />
-      <Box direction="row-responsive" justify="center">
-        <StyledContent alignSelf="center" width="large" style={{ opacity: 1 }}>
-          <Heading level={1} icon={'faNewspaper'}>
-            Example Content
-          </Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+      <MacroLayout
+        main={
+          <StyledContent pad="medium" style={{ opacity: 1 }}>
+            <Heading level={1} icon={'faNewspaper'}>
+              Example Content
+            </Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
-          <p>
-            Den <Anchor href="/36162">Umfang</Anchor> erhältst du durch Abrollen
-            des <Anchor href="/36162">Kreises</Anchor>
-            und messen der abgerollten{' '}
-            <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">
-              Strecke
-            </Anchor>
-            . Auf diese Weise kannst du die{' '}
-            <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.
-          </p>
-          <p>
-            In der Abbildung rechts siehst du, wie ein Kreis mit{' '}
-            <Anchor href="/36162">Durchmesser</Anchor>
-            <b>d=1</b> abgerollt wird.
-          </p>
-          <p>
-            Sein Umfang beträgt
-            <b>π</b>, also etwa <b>3,14</b>
-          </p>
-          <p>Für den Umfang findest du so den folgenden Zusammenhang: </p>
-          <p>
-            <b>U=2⋅r⋅π=d⋅π</b>
-          </p>
-        </StyledContent>
-      </Box>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
+            <p>
+              Den <Anchor href="/36162">Umfang</Anchor> erhältst du durch
+              Abrollen des <Anchor href="/36162">Kreises</Anchor>
+              und messen der abgerollten{' '}
+              <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">
+                Strecke
+              </Anchor>
+              . Auf diese Weise kannst du die{' '}
+              <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.
+            </p>
+            <p>
+              In der Abbildung rechts siehst du, wie ein Kreis mit{' '}
+              <Anchor href="/36162">Durchmesser</Anchor>
+              <b>d=1</b> abgerollt wird.
+            </p>
+            <p>
+              Sein Umfang beträgt
+              <b>π</b>, also etwa <b>3,14</b>
+            </p>
+            <p>Für den Umfang findest du so den folgenden Zusammenhang: </p>
+            <p>
+              <b>U=2⋅r⋅π=d⋅π</b>
+            </p>
+          </StyledContent>
+        }
+      />
+
       <EditBox />
     </Provider>
   ))
@@ -110,76 +114,73 @@ storiesOf('Misc Components', module)
     <Provider>
       <Normalize />
       <GlobalStyle />
-      <Box direction="row-responsive" justify="center">
-        <StyledContent
-          pad="large"
-          alignSelf="center"
-          width="large"
-          style={{ opacity: 1 }}
-        >
-          <Breadcrumb />
+      <MacroLayout
+        main={
+          <StyledContent pad="medium" alignSelf="center" style={{ opacity: 1 }}>
+            <Breadcrumb />
 
-          <Heading level={1} icon="faNewspaper">
-            Example Content
-          </Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+            <Heading level={1} icon="faNewspaper">
+              Example Content
+            </Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
 
-          <Heading level={2}>Zusammenfassung</Heading>
-          <p>
-            Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
-            rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
-            folgenden Formeln kennen:
-          </p>
-          <p>
-            Den <Anchor href="/36162">Umfang</Anchor> erhältst du durch Abrollen
-            des <Anchor href="/36162">Kreises</Anchor>
-            und messen der abgerollten{' '}
-            <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">
-              Strecke
-            </Anchor>
-            . Auf diese Weise kannst du die{' '}
-            <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.
-          </p>
-          <p>
-            In der Abbildung rechts siehst du, wie ein Kreis mit{' '}
-            <Anchor href="/36162">Durchmesser</Anchor>
-            <b>d=1</b> abgerollt wird.
-          </p>
-          <p>
-            Sein Umfang beträgt
-            <b>π</b>, also etwa <b>3,14</b>
-          </p>
-          <p>Für den Umfang findest du so den folgenden Zusammenhang: </p>
-          <p>
-            <b>U=2⋅r⋅π=d⋅π</b>
-          </p>
-        </StyledContent>
-      </Box>
+            <Heading level={2}>Zusammenfassung</Heading>
+            <p>
+              Ein Kreis beschreibt die Menge aller Punkte, die denselben Abstand
+              rr zum Mittelpunkt MM besitzen. In diesem Artikel lernst du die
+              folgenden Formeln kennen:
+            </p>
+            <p>
+              Den <Anchor href="/36162">Umfang</Anchor> erhältst du durch
+              Abrollen des <Anchor href="/36162">Kreises</Anchor>
+              und messen der abgerollten{' '}
+              <Anchor href="https://de.serlo.org/mathe/geometrie/grundbegriffe/geraden-strecken-halbgeraden/strecke">
+                Strecke
+              </Anchor>
+              . Auf diese Weise kannst du die{' '}
+              <Anchor href="/2107">Kreiszahl</Anchor> <b>π</b> definieren.
+            </p>
+            <p>
+              In der Abbildung rechts siehst du, wie ein Kreis mit{' '}
+              <Anchor href="/36162">Durchmesser</Anchor>
+              <b>d=1</b> abgerollt wird.
+            </p>
+            <p>
+              Sein Umfang beträgt
+              <b>π</b>, also etwa <b>3,14</b>
+            </p>
+            <p>Für den Umfang findest du so den folgenden Zusammenhang: </p>
+            <p>
+              <b>U=2⋅r⋅π=d⋅π</b>
+            </p>
+          </StyledContent>
+        }
+      />
     </Provider>
   ))
   .add('IconTest', () => (

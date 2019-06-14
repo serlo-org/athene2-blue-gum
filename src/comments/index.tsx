@@ -9,10 +9,9 @@ import { Comment } from './comment'
 import LazyLoad from 'react-lazy-load'
 
 export function Comments({ data, onSendComment }: CommentsProps) {
-  console.log(data)
   return (
     <React.Fragment>
-      <CommentBox pad="large" width="large" alignSelf="center">
+      <CommentBox pad="medium" alignSelf="center">
         <Heading level={2} icon={'faQuestionCircle'}>
           Hast du eine Frage?
         </Heading>
